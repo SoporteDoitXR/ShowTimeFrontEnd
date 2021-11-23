@@ -1,21 +1,27 @@
-function App() {
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Outlet } from "react-router";
+
+import EditScenario from "./pages/editScene";
+import CreateShowTime from "./pages/createSpace";
+import Navbar from "./components/navbar";
+import IndexModal from "./components/modalEdit";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<CreateShowTime />} />
+          <Route path="editScene" element={<EditScenario />}>
+            <Route path="modal" element={<IndexModal />} /> "/modal"
+          </Route>
+        </Routes>
+        <Outlet />
+      </div>
+    </Router>
   );
 }
-
-export default App;
