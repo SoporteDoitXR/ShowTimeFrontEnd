@@ -9,9 +9,9 @@ const CreateSpace = () => {
   return (
     <>
       <div className="container-fluid border-bottom border-dark boder-3">
-        <div className="d-flex justify-content-center ">
+        <div className="d-flex justify-content-center poppins-bold fs-7">
           <div
-            className={`mx-5 fw-bolder " ${
+            className={`mx-5  " ${
               sceneCreator == 0
                 ? "py-2 px-4 my-1 bg-info rounded-pill"
                 : "my-auto"
@@ -20,7 +20,7 @@ const CreateSpace = () => {
             1. Info
           </div>
           <div
-            className={`mx-5 fw-bolder " ${
+            className={`mx-5  " ${
               sceneCreator >= 1
                 ? "py-2 px-4 my-1 bg-info rounded-pill"
                 : "my-auto"

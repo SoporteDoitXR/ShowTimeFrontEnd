@@ -1,0 +1,211 @@
+/**
+*WIDTH Y HEIGHT
+**/
+.h-1 {
+  height: 0.5rem;
+}
+.h-2 {
+  height: 1rem;
+}
+.h-3 {
+  height: 1.5rem;
+}
+.h-4 {
+  height: 2rem;
+}
+.h-5 {
+  height: 2.5rem !important;
+}
+.h-6 {
+  height: 3rem;
+}
+.h-7 {
+  height: 3.5rem;
+}
+.h-8 {
+  height: 4rem;
+}
+.h-9 {
+  height: 4.5rem;
+}
+.h-10 {
+  height: 5rem;
+}
+.h-11 {
+  height: 6rem;
+}
+.h-12 {
+  height: 7rem;
+}
+.h-13 {
+  height: 8rem;
+}
+.h-14 {
+  height: 9rem;
+}
+.h-15 {
+  height: 10rem;
+}
+.h-full {
+  height: 100%;
+}
+.h-screen {
+  height: 100vh;
+}
+.h-20 {
+  height: 20%;
+}
+.h-25 {
+  height: 25%;
+}
+.h-50 {
+  height: 50%;
+}
+.h-75 {
+  height: 75%;
+}
+.max-h-96 {
+  max-height: 24rem;
+}
+.w-1 {
+  width: 0.5rem !important;
+}
+.w-2 {
+  width: 1rem !important;
+}
+.w-3 {
+  width: 1.5rem !important;
+}
+.w-4 {
+  width: 2rem !important;
+}
+.w-5 {
+  width: 2.5rem !important;
+}
+.w-6 {
+  width: 3rem !important;
+}
+.w-7 {
+  width: 3.5rem !important;
+}
+.w-8 {
+  width: 4rem !important;
+}
+.w-9 {
+  width: 4.5rem !important;
+}
+.w-10 {
+  width: 5rem !important;
+}
+.w-11 {
+  width: 6rem !important;
+}
+.w-12 {
+  width: 7rem !important;
+}
+.w-13 {
+  width: 8rem !important;
+}
+.w-14 {
+  width: 9rem !important;
+}
+.w-15 {
+  width: 10rem !important;
+}
+.w-full {
+  width: 100%;
+}
+.w-screen {
+  width: 100vw !important;
+}
+.h-imgbg {
+  height: ();
+}
+/**
+** z-index
+**/
+.z--2 {
+  z-index: -2 !important;
+}
+.z-1 {
+  z-index: 0 !important;
+}
+.z-2 {
+  z-index: 2 !important;
+}
+.z-5 {
+  z-index: 5;
+}
+.z-10 {
+  z-index: 10 !important;
+}
+
+/**
+* SPACING
+**/
+.m-none {
+  margin: 0 !important;
+}
+.p-none {
+  padding: 0 !important;
+}
+.ps-4-5 {
+  padding-left: 2.5rem !important;
+}
+.pe-4-5 {
+  padding-right: 2.5rem !important;
+}
+/* magin */
+.mt-6 {
+  margin-top: 4rem !important;
+}
+.mt-7 {
+  margin-top: 5rem !important;
+}
+.mt-8 {
+  margin-top: 6rem !important;
+}
+.mt-9 {
+  margin-top: 8rem !important;
+}
+.mt-10 {
+  margin-top: 10rem !important;
+}
+.mt-15 {
+  margin-top: 20rem !important;
+}
+.fixed {
+  position: fixed;
+}
+
+/**
+* letter spacing
+*/
+.fs-7 {
+  font-size: 0.875rem !important;
+}
+.fs-8 {
+  font-size: 0.75rem !important;
+}
+/**
+* BORDER RADIUS
+*/
+.border-none {
+  border: none;
+}
+.rounded-xl {
+  border-radius: 0.75rem !important;
+}
+.rounded-2xl {
+  border-radius: 1rem !important;
+}
+.rounded-3xl {
+  border-radius: 1.5rem !important;
+}
+
+/**
+** OVERFLOW
+**/
+.overflow-y-auto {
+  overflow-y: auto;
+}

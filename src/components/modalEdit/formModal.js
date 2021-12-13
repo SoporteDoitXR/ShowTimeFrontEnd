@@ -4,11 +4,11 @@ import showtime from "../../assets/UI/profile.png";
 
 const formModal = ({ onSubmit, handleSubmit, register }) => {
   return (
-    <div className="col-11 mx-auto row my-4">
+    <div className="col-11 mx-auto row my-auto">
       <div className="col-6 pe-5">
         <img className="col-3 mt-5" alt="" src={showtime} />
         <div className="fs-3">Feria anual 2022</div>
-        <div className="">
+        <div className="fs-6 mt-3">
           Una feria es un evento industrial, social, económico y cultural
           —establecido, temporal o ambulante, periódico o anual— que se lleva a
           cabo en una sede y que llega a abarcar generalmente un tema o
@@ -34,7 +34,7 @@ const formModal = ({ onSubmit, handleSubmit, register }) => {
           <Input
             id={"name_sts"}
             text={"Numero de telefono"}
-            placeholder={"Numero de telefonob"}
+            placeholder={"Numero de telefono"}
             type={"text"}
             register={register}
             errorMessage={"Campo obligatorio"}

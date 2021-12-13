@@ -3,7 +3,7 @@ import CardScene from "../UI/CardScene";
 
 const selecScene = () => {
   return (
-    <div className="row g-4 my-3 mx-auto col-11 ">
+    <div className="row g-4 my-3 mx-auto col-11 my-auto">
       <CardScene
         textScene={"Fachada"}
         sceneIMG={

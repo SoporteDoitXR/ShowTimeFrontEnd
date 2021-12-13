@@ -22,8 +22,8 @@ const SelectTemplate = ({ sceneController }) => {
       noValidate
     >
       <div className="col-12 text-center">
-        <div className="fs-2">Selecciona tus escenarios</div>
-        <div className="">
+        <div className="fs-3 poppins-medium">Selecciona tus escenarios</div>
+        <div className=" poppins-medium">
           Puedes comenzar creando un espacio para tu empresa
         </div>
       </div>
@@ -83,13 +83,13 @@ const SelectTemplate = ({ sceneController }) => {
 
       <div className="d-flex justify-content-center gap-5 mt-8">
         <Button
-          className="btn btn-dark px-5"
+          className="btn btn-dark px-5 poppins-bold"
           text="Cancelar"
           onClick={() => sceneController(0)}
         />
         <Button
           type="submit"
-          className="btn btn-primary px-5"
+          className="btn btn-primary px-5 poppins-bold"
           text="Siguiente"
         />
       </div>

@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import { FaEdit, FaCheckCircle } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
+import Div from "./div";
 
-const CardScene = ({ textScene, sceneIMG, cardMode, onClick, selected }) => {
+const CardScene = ({
+  textScene,
+  x,
+  y,
+  z = 2,
+  sceneIMG,
+  cardMode,
+  onClick,
+  selected,
+}) => {
   const [hover, setHover] = useState(false);
   return (
-    <div className="col-4 ">
+    <Div width={350} positionY={y} positionX={x} zIndex={z}>
       <div
         className={`card rounded-2xl m-none p-none shadow " ${
           onClick && " cursor-pointer "
@@ -47,7 +57,7 @@ const CardScene = ({ textScene, sceneIMG, cardMode, onClick, selected }) => {
           )}
         </div>
       </div>
-    </div>
+    </Div>
   );
 };
 

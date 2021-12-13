@@ -12,7 +12,7 @@ const CardTemplate = ({ id, title, description, img, checked, register }) => {
           />
         </div>
 
-        <div className="col text-white">
+        <div className="col text-white poppins-medium">
           <p className="text-start text-wrap lh-base text-decoration-none text-reset fw-bold fs-5 py-1 m-none">
             {title}
           </p>
