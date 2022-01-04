@@ -6,9 +6,12 @@ import EditScenario2 from "./pages/editScene2";
 import EditScenario from "./pages/editScene";
 import CreateShowTime from "./pages/createSpace";
 import Navbar from "./components/navbar";
-import IndexModal from "./components/modalEdit";
+import IndexModal from "./components/modal";
 import Login from "./pages/login";
 import UserShowTimes from "./pages/userShowTimes";
+import EditPavilion from "./pages/createPavilion";
+import EditNetworking from "./pages/createNetworking";
+import CreateMeeting from "./pages/createMeeting";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -22,10 +25,30 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<UserShowTimes />} />
           <Route path="editScene" element={<EditScenario />}>
-            <Route path="modal" element={<IndexModal />} /> "/modal"
+            <Route path="md" element={<IndexModal type={"normal"} />} />
+            <Route path="ml" element={<IndexModal type={"calendar"} />} />
+            <Route path="mr" element={<IndexModal type={"report"} />} />
+            <Route path="mn" element={<IndexModal type={"notification"} />} />
+            <Route path="ms" element={<IndexModal type={"settings"} />} />
           </Route>
-          <Route path="editScene2" element={<EditScenario2 />}>
-            <Route path="modal" element={<IndexModal />} /> "/modal"
+          <Route path="editPavilion" element={<EditPavilion />}>
+            <Route path="md" element={<IndexModal type={"normal"} />} />
+            <Route path="ml" element={<IndexModal type={"calendar"} />} />
+            <Route path="mr" element={<IndexModal type={"report"} />} />
+            <Route path="mn" element={<IndexModal type={"notification"} />} />
+            <Route path="ms" element={<IndexModal type={"settings"} />} />
+          </Route>
+          <Route path="editNetworking" element={<EditNetworking />}>
+            <Route path="md" element={<IndexModal type={"normal"} />} />
+            <Route path="mr" element={<IndexModal type={"report"} />} />
+            <Route path="mn" element={<IndexModal type={"notification"} />} />
+            <Route path="ms" element={<IndexModal type={"settings"} />} />
+          </Route>
+          <Route path="editMeeting" element={<CreateMeeting />}>
+            <Route path="md" element={<IndexModal type={"normal"} />} />
+            <Route path="mr" element={<IndexModal type={"report"} />} />
+            <Route path="mn" element={<IndexModal type={"notification"} />} />
+            <Route path="ms" element={<IndexModal type={"settings"} />} />
           </Route>
         </Routes>
         <Outlet />

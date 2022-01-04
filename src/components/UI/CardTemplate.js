@@ -3,7 +3,7 @@ import React from "react";
 const CardTemplate = ({ id, title, description, img, checked, register }) => {
   return (
     <div className="col-4  h-12">
-      <div className="row col-11 bg-dark border border-primary border-2 rounded-xl mx-auto py-2">
+      <div className="row col-11 dark-bg-2 border-cards border-4 rounded-xl mx-auto py-2">
         <div className="col-3">
           <img
             className="rounded-circle py-3 w-full my-auto"

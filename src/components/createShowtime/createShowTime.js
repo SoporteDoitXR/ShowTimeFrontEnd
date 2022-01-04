@@ -1,3 +1,8 @@
+/*
+  ESTE ES UN COMPONENTE DE CREACION DE ESPACIO O SHOWTIME. 
+  SU FUNCION ES DE FORMULARIO DE NOMBRE Y DESCRIPCION DE EVENTO, MANEJADOS POR REACT-HOOK-FORM
+*/
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import Input from "../../components/UI/Input";
@@ -16,7 +21,7 @@ const CreateShowTime = ({ sceneController }) => {
   };
   return (
     <form
-      className=" g-3 needs-validation"
+      className="g-3 needs-validation"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >

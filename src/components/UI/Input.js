@@ -11,6 +11,7 @@ const Input = ({
   iconRight,
   onChange,
   color,
+  size,
   required,
   register,
   errorMessage,
@@ -24,7 +25,7 @@ const Input = ({
     <div
       className={`w-full py-2 poppins-medium ${fontsize ? fontsize : "fs-6"}`}
     >
-      <p className="tracking-wider">{text ? text : "text"}</p>
+      {text && <p className="tracking-wider">{text}</p>}
       <div className="position-relative">
         {iconLeft && (
           <i className="h-full position-absolute ps-3 d-flex start-0 pointer-events-none">
@@ -108,7 +109,19 @@ const Input = ({
             onChange={onChange && onChange}
             placeholder={placeholder && placeholder}
             rows="5"
-            className="py-2 px-3 w-full form-control h-15 border-dark border-2 rounded-xl"
+            className={`py-2 w-full form-control rounded-xl ${
+              color == "dark"
+                ? "dark-bg-2 border-light border text-white"
+                : "border-dark border-2"
+            } ${
+              size == "xl"
+                ? "h-18"
+                : size == "large"
+                ? "h-16"
+                : size == "normal"
+                ? "h-15"
+                : "h-14"
+            } ${iconLeft ? "ps-4-5" : "ps-3"} ${iconRight ? "pe-4-5" : "pe-3"}`}
             {...(required
               ? register(id, {
                   required: { value: true, message: "Campo obligatorio" },

@@ -2,10 +2,24 @@ import React, { useEffect, useState } from "react";
 import Button from "../UI/Button";
 import { MdDeleteForever } from "react-icons/md";
 import ItemBanner from "../UI/ItemBanner";
+/*
+  ESTE COMPONENTE ES DE PAGINA DE EDICION DE PLANTILLAS
+  SU FUNCION ES LA DE EDITAR LA PLANTILLA A USAR EN LA ESCENA
+  ESTE COMPONENTE HACE USO DEL CODIGO DE REDIMENCIONAMIENTO POR JAVASCRIPT
+  ES NECESARIO UBICAR LOS ELEMENTOS POR EJES X/Y Y SI ES NECESARIO, TAMBIEN SU WIDTH Y HEIGHT
+
+  ----IMPORTANTE: TEMPORALMENTE NO HAY PLANTILLAS, ASI QUE, EL CONTROLADOR SOLO ES VISUAL
+
+  -------NOTA IMPORTANTE------ 
+  COMO NO EXISTEN PLANTILLAS DONDE HACER CLICK PARA DESPLEGAR MODAL DE AGREGAR ELEMENTOS,
+  FUE INCORPORADO EN EVENTO ONCLICK() DEL TEXTO 'NO HAY CONTENIDO SELECCIONADO' DE LA SECCION DE BANNERS
+*/
+
 import { Outlet } from "react-router";
 import ModalAdd from "./modalAddElement";
 import { ChromePicker } from "react-color";
 import Div from "../canvas2d/div";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 const editTemplate = ({ setScene }) => {
   const [primaryColor, setPrimaryColor] = useState("#000000");
@@ -14,21 +28,73 @@ const editTemplate = ({ setScene }) => {
   const [showColorSecondary, setShowColorSecondary] = useState(false);
   const [imgLogo, setImgLogo] = useState("");
   const [showModa, setShowModal] = useState(false);
+  const [control, setControl] = useState(true);
+  const [height, setHeight] = useState(900);
+
+  // CONTROL DE ANIMACION PARA OCULTAR O VER CONTROLADOR
+  useEffect(() => {
+    let interval = null;
+    if (control && height != 900) {
+      interval = setInterval(() => {
+        setHeight((height) => height < 900 && height + 10);
+      }, 1);
+    } else if (control && height == 900) {
+      clearInterval(interval);
+    }
+
+    if (!control) {
+      interval = setInterval(() => {
+        setHeight((height) => height > 80 && height - 10);
+      }, 1);
+    } else if (!control && height == 80) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [control, height]);
+
   return (
     <Div
       className="editPanel rounded-xl"
+      height={height}
       width={400}
-      positionY={150}
+      positionY={120}
       positionX={1500}
     >
       <div className="row h-full g-3 p-3">
-        <div className="text-white fs-3  col-12 poppins-bold">
+        <div className="text-white fs-3 col-12 poppins-bold d-flex justify-content-between user-select-none">
           Personalización
+          {/* OCULTAR O VISUALIZAR EL PANEL DE CONTROL */}
+          {!control && (
+            <RiArrowDownSLine
+              className="text-white fs-1 w-10 cursor-pointer"
+              onClick={() => setControl(!control)}
+            />
+          )}
+          {control && (
+            <RiArrowUpSLine
+              className="text-white fs-1 w-10 cursor-pointer"
+              onClick={() => setControl(!control)}
+            />
+          )}
         </div>
 
-        {/* color picker */}
-        <div className="col-12  text-white fs-5 poppins-bold">Colores</div>
-        <div className="col-6  text-white fs-5 poppins-medium">
+        {/* SELECCIONADOR DE COLORES */}
+
+        {/* NOTA: LOS COLORES SELECCIONADOS SON EL COLOR DE LOS MARCOS DE LOS COMPONENTES EN PLANTILLA
+            TEMPORALMENTE NO ESTA ESTA FUNCION PORQUE NO HAY PLANTILLAS
+         */}
+        <div
+          className={`col-12  text-white fs-5 poppins-bold user-select-none ${
+            height == 900 ? "d-show" : "d-none"
+          }`}
+        >
+          Colores
+        </div>
+        <div
+          className={`col-6  text-white fs-5 poppins-medium ${
+            height == 900 ? "d-show" : "d-none"
+          }`}
+        >
           <p className="fs-6">Primario</p>
           <div className="p-2 border border-light rounded-xl d-flex justify-content-between">
             <div
@@ -51,7 +117,11 @@ const editTemplate = ({ setScene }) => {
             ) : null}
           </div>
         </div>
-        <div className="col-6 text-white fs-5 poppins-medium fs-6">
+        <div
+          className={`col-6 text-white fs-5 poppins-medium fs-6 ${
+            height == 900 ? "d-show" : "d-none"
+          }`}
+        >
           <p>Secundario</p>
           <div className="p-2 border border-light rounded-xl d-flex justify-content-between">
             <div
@@ -76,8 +146,13 @@ const editTemplate = ({ setScene }) => {
           </div>
         </div>
 
-        {/* Logo picker */}
-        <div className="col-12 text-white d-flex justify-content-between fs-5 poppins-bold">
+        {/* SELECCIONADOR DE LOGO */}
+        {/* DEBE MOSTRAR EL LOGO EN LA UBICACION EN ESPECIFICO DE LA PLANTILLA EN CUESTION, DEBE DESACTIVARSE DE SER NECESARIO */}
+        <div
+          className={`col-12 text-white d-flex justify-content-between fs-5 poppins-bold ${
+            height == 900 ? "d-show" : "d-none"
+          }`}
+        >
           Logotipo
           {imgLogo != "" && (
             <div
@@ -88,7 +163,11 @@ const editTemplate = ({ setScene }) => {
             </div>
           )}
         </div>
-        <div className="col-11 border-inputFile mx-auto position-relative cursor-pointer h-13">
+        <div
+          className={`col-11 border-inputFile mx-auto position-relative cursor-pointer h-13 ${
+            height == 900 ? "d-show" : "d-none"
+          }`}
+        >
           <input
             type="file"
             className="file_upload"
@@ -117,9 +196,24 @@ const editTemplate = ({ setScene }) => {
           )}
         </div>
 
-        {/* BANNERS PICKER */}
-        <div className="col-12 text-white fs-5 poppins-bold">Banners</div>
-        <div className="col-12 h-20 custom-scroll">
+        {/* LISTADO DE ELEMENTOS CARGADOS EN PANTALLA */}
+        {/* 
+            -------NOTA IMPORTANTE------ 
+            COMO NO EXISTEN PLANTILLAS DONDE HACER CLICK PARA DESPLEGAR MODAL DE AGREGAR ELEMENTOS,
+            FUE INCORPORADO EN EVENTO ONCLICK() DEL TEXTO 'NO HAY CONTENIDO SELECCIONADO'
+        */}
+        <div
+          className={`col-12 text-white fs-5 poppins-bold ${
+            height == 900 ? "d-show" : "d-none"
+          }`}
+        >
+          Banners
+        </div>
+        <div
+          className={`col-12 h-20 custom-scroll ${
+            height == 900 ? "d-show" : "d-none"
+          }`}
+        >
           <p
             className="text-gray fs-6 poppins-medium "
             onClick={() => setShowModal(true)}
@@ -133,7 +227,11 @@ const editTemplate = ({ setScene }) => {
         </div>
 
         {/* Buttons */}
-        <div className="d-flex justify-content-center gap-5 mt-5">
+        <div
+          className={`d-flex justify-content-center gap-5 mt-5 ${
+            height == 900 ? "d-show" : "d-none"
+          }`}
+        >
           <Button
             className="btn btn-dark px-3 col-5 poppins-bold"
             text="Volver"

@@ -1,3 +1,9 @@
+/*
+  ESTE DOCUMENTO ES EL FORMULARIO DE EDICION DE PERFIL DE USUARIO.
+  PERMITE AGREGAR SUS REDES SOCIALES, EMAIL, GESTION BASICA DE USUARIO Y FOTO DE PERFIL
+
+  sE HACE CONTROL DE ERRORES A TRAVEZ DE REACT-HOOK-FORM
+*/
 import { useForm } from "react-hook-form";
 import Input from "../../components/UI/Input";
 import Button from "../../components/UI/Button";
@@ -26,7 +32,8 @@ const userProfile = () => {
         noValidate
       >
         <div class="col mt-5">
-          <div className="col-12 border-inputFile mx-auto position-relative cursor-pointer h-15 rounded-pill mt-5">
+          {/* SELECTOR DE IMAGEN */}
+          <div className="col-12 profile-inputFile mx-auto position-relative cursor-pointer h-15 rounded-pill mt-5">
             <input
               type="file"
               className="file_upload"
@@ -48,11 +55,11 @@ const userProfile = () => {
                 </div>
               </div>
             ) : (
-              <div className="d-flex flex-column justify-content-center h-full poppins-medium">
+              <div className="d-flex flex-column justify-content-center h-full poppins-medium text-primary">
                 <div className="d-flex justify-content-center mb-2">
-                  <MdAddAPhoto className="text-primary fs-1" />
+                  <MdAddAPhoto className="fs-1" />
                 </div>
-                <div className="text-secondary text-center  fs-6 ">
+                <div className="text-center  fs-6 ">
                   Agregar
                   <br />
                   imagen
@@ -75,8 +82,8 @@ const userProfile = () => {
           />
           <Input
             id={"email"}
-            text={"Nombre de usuario"}
-            placeholder={"Nombre de usuario"}
+            text={"Correo electrónico"}
+            placeholder={"info@empresa.com"}
             type={"text"}
             register={register}
             errorMessage={"Campo obligatorio"}
@@ -109,15 +116,47 @@ const userProfile = () => {
             errorMessage={"Campo obligatorio"}
             required
           />
-          <Input
-            id={"fb_user"}
-            text={"Facebook"}
-            placeholder={"Link de Facebook"}
-            type={"text"}
-            register={register}
-            errorMessage={"Campo obligatorio"}
-            required
-          />
+          <div className="d-flex gap-4">
+            <Input
+              id={"fb_user"}
+              text={"Facebook"}
+              placeholder={"Link de Facebook"}
+              type={"text"}
+              register={register}
+              errorMessage={"Campo obligatorio"}
+              required
+            />
+            <Input
+              id={"tt_user"}
+              text={"Twitter"}
+              placeholder={"Link de Twitter"}
+              type={"text"}
+              register={register}
+              errorMessage={"Campo obligatorio"}
+              required
+            />
+          </div>
+          <div className="d-flex gap-4">
+            <Input
+              id={"yt_user"}
+              text={"Youtube"}
+              placeholder={"Link de Youtube"}
+              type={"text"}
+              register={register}
+              errorMessage={"Campo obligatorio"}
+              required
+            />
+            <Input
+              id={"li_user"}
+              text={"LinkedIn"}
+              placeholder={"Link de LinkedIn"}
+              type={"text"}
+              register={register}
+              errorMessage={"Campo obligatorio"}
+              required
+            />
+          </div>
+
           <div className="d-flex justify-content-center gap-5 mt-5">
             <Button
               type="submit"

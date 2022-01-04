@@ -1,3 +1,12 @@
+/*
+  ESTE COMPONENTE ES EL NAVBAR QUE APARECE EN TODAS LAS PAGINAS
+  YA QUE ALGUNAS PAGINAS DEL PROYECTO TRABAJAN DIFERENTES POR EL TEMA DE REDIMENCIONAMIENTO POR JAVASCRIPT,
+  EL NAVBAR HA TENIDO QUE CAMBIAR, A TAL PUNTO EN QUE HAY 2 NAVBAR DIFERENTES
+
+  ADEMAS, EL NAVBAR QUE APARECE EN RUTAS /edit... USA EL CODIGO DE POSICIONAMIENTO POR COORDENADAS, POSEE ANIMACIONES Y EL SIDEBAR QUE 
+  PERMITE LA NAVEGACION ENTRE DIFERENTES ESCENAS, Y EL DESPLIEGUE DEL MODAL BASICO O ESPECIFICO (REPORTE, NOTIFICACIONES, AJUSTES)
+*/
+
 import React, { useState } from "react";
 import profileIMG from "../assets/UI/profile.png";
 import {
@@ -20,14 +29,17 @@ import Div from "./canvas2d/div";
 
 const Navbar = () => {
   let navigation = useNavigate();
-  const [showNavbar, setShowNavbar] = useState(false);
+  let location = useLocation().pathname;
+  const [showNavbar, setShowNavbar] = useState(true);
   const [showCollapse, setShowCollapse] = useState("d-none");
+  const [showCollapseProfile, setShowCollapseProfile] = useState("d-none");
 
   return (
     <>
-      {!useLocation().pathname.includes("/editScene") && (
+      {/* Navbar relativo convencional cuando no esta en ruta /edit... */}
+      {!useLocation().pathname.includes("/edit") && (
         <div className="navbar navbar-dark bg-dark z-10">
-          <button className="navbar-toggler ms-3" type="button">
+          <button className="navbar-toggler ms-3 " type="button">
             <span className="navbar-toggler-icon"></span>
           </button>
 
@@ -41,7 +53,9 @@ const Navbar = () => {
           </div>
         </div>
       )}
-      {useLocation().pathname.includes("/editScene") && (
+
+      {/* Navbar por coordenadas que solo aparece en ruta /edit... */}
+      {useLocation().pathname.includes("/edit") && (
         <Div
           className="w-screen "
           zIndex={2}
@@ -68,6 +82,8 @@ const Navbar = () => {
                 onClick={() => {
                   setShowNavbar(!showNavbar);
                   showCollapse != "d-none" && setShowCollapse("slideOutLeft");
+                  showCollapseProfile != "d-none" &&
+                    setShowCollapseProfile("fadeOut");
                 }}
               />
             )}
@@ -94,17 +110,36 @@ const Navbar = () => {
                   text="Tu espacio"
                   iconLeft={HiCube}
                   iconClassName="fs-4 text-primary"
-                  onClick={() => navigation("editScene/modal")}
+                  onClick={() => navigation(location + "/md")}
                 />
               </div>
               <img
                 src={profileIMG}
                 alt=""
-                className="navbar h-8 rounded-circle my-auto"
+                className="navbar h-8 rounded-circle my-auto cursor-pointer"
+                onClick={() =>
+                  showCollapseProfile != "fadeIn"
+                    ? setShowCollapseProfile("fadeIn")
+                    : setShowCollapseProfile("fadeOut")
+                }
               />
               <FaRegQuestionCircle className="text-primary ms-3 fs-2 my-auto" />
             </div>
           </div>
+
+          {/* MINI MENU COLLAPSE DE PERFIL */}
+          <Div
+            className={`bg-white rounded-xl d-flex flex-column poppins-medium fs-6 justify-content-evenly ps-2 ${showCollapseProfile}`}
+            height={150}
+            width={160}
+            positionY={70}
+            positionX={1440}
+          >
+            <div className="cursor-pointer">Perfil</div>
+            <div className="cursor-pointer">Mis showtime</div>
+            <div className="cursor-pointer">Cambiar usuario</div>
+            <div className="cursor-pointer">Cerrar sesión</div>
+          </Div>
 
           {/* menu lateral */}
           <Div
@@ -119,35 +154,69 @@ const Navbar = () => {
               onClick={() => setShowCollapse("slideOutLeft")}
             ></button>
             <div className="d-flex flex-column justify-content-between h-75 mt-3">
-              <div className="text-white d-flex flex-column mx-auto ">
+              <div className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary">
                 <HiCube className="fs-4 mx-auto" />
                 Escenario 3D
               </div>
-              <div className="text-white d-flex flex-column mx-auto">
+
+              <div
+                className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
+                onClick={() =>
+                  navigation("editNetworking", {
+                    state: {
+                      type: "users",
+                    },
+                  })
+                }
+              >
                 <FaUserAlt className="fs-4 mx-auto" />
                 Usuarios
               </div>
-              <div className="text-white d-flex flex-column mx-auto">
+              <div
+                className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
+                onClick={() =>
+                  navigation("editNetworking", {
+                    state: {
+                      type: "company",
+                    },
+                  })
+                }
+              >
                 <FaBuilding className="fs-4 mx-auto" />
                 Empresas
               </div>
-              <div className="text-white d-flex flex-column mx-auto">
+              <div
+                className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
+                onClick={() => navigation("editMeeting")}
+              >
                 <RiSlideshow2Fill className="fs-4 mx-auto" />
                 Conferencias
               </div>
-              <div className="text-white d-flex flex-column mx-auto">
+              <div
+                className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
+                onClick={() => navigation("editScene/ml")}
+              >
                 <FaCalendarAlt className=" fs-4 mx-auto" />
                 Calendario
               </div>
-              <div className="text-white d-flex flex-column mx-auto">
+              <div
+                className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
+                onClick={() => navigation("editScene/mr")}
+              >
                 <GoGraph className="fs-4 mx-auto" />
                 Reportes
               </div>
-              <div className="text-white d-flex flex-column mx-auto">
+              <div
+                className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
+                onClick={() => navigation("editScene/mn")}
+              >
                 <IoNotifications className="fs-4 mx-auto" />
                 Notificaciones
               </div>
-              <div className="text-white d-flex flex-column mx-auto">
+              <div
+                className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
+                onClick={() => navigation("editScene/ms")}
+              >
                 <IoSettingsSharp className="fs-4 mx-auto" />
                 Ajustes
               </div>

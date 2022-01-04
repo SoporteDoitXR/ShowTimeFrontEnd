@@ -1,23 +1,26 @@
+/*
+  ESTE COMPONENTE QUE APARECE PAGINA DE EDICION DE PLANTILLA, UN MODAL
+  SU FUNCION ES SER UN MODAL PARA AGREGAR UN ELEMENTO MULTIMEDIA EN LA PLANTILLA
+
+  HACE USO DE ESTADOS/STATES PARA MOSTRAR UNO Y OTRO COMPONENTE:
+  -ADDIMAGE, COMPONENTE PARA AGREGAR UNA IMAGEN
+  -ADDURL,  COMPONENTE PARA AGREGAR UNA URL
+  -ADDVIDEO, COMPONENTE PARA AGREGAR UN VIDEO
+  -ADDHTML, COMPONENTE PARA AGREGAR UN HTML EMBED
+
+  ESTE COMPONENTE HACE USO DEL CODIGO DE REDIMENCIONAMIENTO POR JAVASCRIPT
+  ES NECESARIO UBICAR LOS ELEMENTOS POR EJES X/Y Y SI ES NECESARIO, TAMBIEN SU WIDTH Y HEIGHT
+*/
+
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import Button from "../../UI/Button";
 import AddImage from "./addImage";
 import AddURL from "./addURL";
 import AddVideo from "./addVideo";
+import AddHTML from "./addHTML";
 import Div from "../../canvas2d/div";
 
 const ModalAdd = ({ setShowModal }) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = (e) => {
-    console.log(e);
-  };
-
   const [modalContent, setModalContent] = useState(0);
 
   return (
@@ -73,6 +76,7 @@ const ModalAdd = ({ setShowModal }) => {
         {modalContent == 0 && <AddImage />}
         {modalContent == 1 && <AddVideo />}
         {modalContent == 2 && <AddURL />}
+        {modalContent == 3 && <AddHTML />}
 
         {/* fin contenido */}
         <div className="modal-footer border-0 mb-2">

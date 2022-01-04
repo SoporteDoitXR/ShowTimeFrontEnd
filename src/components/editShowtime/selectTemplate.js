@@ -1,5 +1,13 @@
-import React, { useEffect } from "react";
+/*
+  ESTE COMPONENTE ES DE PAGINA DE EDICION DE PLANTILLAS
+  SU FUNCION ES LA DE ELEGIR LA PLANTILLA A USAR EN LA ESCENA Y SU POSTERIOR EDICION
+  ESTE COMPONENTE HACE USO DEL CODIGO DE REDIMENCIONAMIENTO POR JAVASCRIPT
+  ES NECESARIO UBICAR LOS ELEMENTOS POR EJES X/Y Y SI ES NECESARIO, TAMBIEN SU WIDTH Y HEIGHT
 
+  ----IMPORTANTE: TEMPORALMENTE ES SOLO ESTETICO, NO CAMBIA DE PLANTILLA, SOLO CAMBIA LA IMAGEN DE FONDO
+*/
+
+import React, { useEffect } from "react";
 import plantilla1 from "../../assets/plantillas/esc_plantilla-1.png";
 import plantilla2 from "../../assets/plantillas/esc_plantilla-2.png";
 import plantilla3 from "../../assets/plantillas/esc_plantilla-3.png";

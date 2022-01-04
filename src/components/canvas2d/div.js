@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { useRef } from "react";
 
-//Componente que le da formato a los textos del proyecto, recibe por paremetro los distintos formatos como color de la letra, tipografia
+//Componente que Contenedor, recibe por paremetro los distintos formatos como color de la letra, tipografia
 //posición, tamaño de la letra, animaciones, etc.
 const Div = ({
   children,

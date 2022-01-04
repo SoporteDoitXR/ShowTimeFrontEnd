@@ -1,7 +1,12 @@
+/*
+  ESTE COMPONENTE ES DE CREACION DE SHOWTIME O EVENTO.
+  sU FUNCION ES SER ACCESO DIRECTO A LAS ESCENAS PARA QUE EL USUARIO PUEDA EDITARLAS
+
+  HACE USO DE USEnAVIGATE() PARA REDIRECCIONAR A LAS ESCENAS
+*/
+
 import React from "react";
 import Button from "../../components/UI/Button";
-import { FaEdit } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
 import CardScene from "../UI/CardScene";
 import { useNavigate } from "react-router";
 
@@ -9,7 +14,7 @@ const SelectScene = ({ sceneController }) => {
   let navigation = useNavigate();
   return (
     <div className="mt-6">
-      <div className="col-12 text-center poppins-medium">
+      <div className="col-12 text-center poppins-medium text-white">
         <div className="fs-3">Personaliza tus escenarios</div>
         <div className="col-6 mx-auto">
           Puedes comenzar creando un espacio para tu empresa y también
@@ -23,6 +28,7 @@ const SelectScene = ({ sceneController }) => {
             "https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
           }
           cardMode={"showScene"}
+          onClick={() => navigation("/editScene")}
         />
         <CardScene
           textScene={"Recepción"}
@@ -30,6 +36,7 @@ const SelectScene = ({ sceneController }) => {
             "https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
           }
           cardMode={"showScene"}
+          onClick={() => navigation("/editScene")}
         />
         <CardScene
           textScene={"Pabellón Principal"}
@@ -37,6 +44,7 @@ const SelectScene = ({ sceneController }) => {
             "https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
           }
           cardMode={"showScene"}
+          onClick={() => navigation("/editPavilion")}
         />
         <CardScene
           textScene={"Sala de conferencia"}
@@ -44,6 +52,7 @@ const SelectScene = ({ sceneController }) => {
             "https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
           }
           cardMode={"showScene"}
+          onClick={() => navigation("/editMeeting")}
         />
         <CardScene
           textScene={"Sala networking"}
@@ -51,6 +60,7 @@ const SelectScene = ({ sceneController }) => {
             "https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
           }
           cardMode={"showScene"}
+          onClick={() => navigation("/editNetworking")}
         />
         <CardScene
           textScene={"Sala privada"}
@@ -68,7 +78,7 @@ const SelectScene = ({ sceneController }) => {
           onClick={() => sceneController(1)}
         />
         <Button
-          className="btn btn-primary px-5 poppins-bold"
+          className="btn btn-light px-5 poppins-bold"
           text="Crear espacio"
           onClick={() => navigation("/editScene")}
         />

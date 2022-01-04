@@ -1,3 +1,7 @@
+/*
+  ESTE DOCUMENTO ES UNA PAGINA PRINCIPAL DE LOGIN, HACE USO DE REACT-HOOK-FORM PARA EL FORMULARIO Y CONTROL DE ERRORES
+*/
+
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../components/UI/Input";
@@ -14,6 +18,7 @@ const login = () => {
     formState: { errors },
   } = useForm();
 
+  // FUNCION QUE SE EJECUTA SI NO HAY ERRORES
   const onSubmit = () => {
     console.log("nice");
   };
