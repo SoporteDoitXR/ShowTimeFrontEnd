@@ -1,3 +1,19 @@
+/*
+  COMPONENTE REUTILIZABLE DE SELECT, SE COMPONE DE UN TEXTO Y EL INPUT TIPO SELECT
+  PROPS:
+  -TEXT, TEXTO DE DIV
+  -ID
+  -VALUE, VALOR DEL SELECT
+  -DEFAULTVALUE, VALOR POR DEFECTO,USADO POR SI NO USA PLACEHOLDER, RECIBE NUMERO
+  -CLASSNAME, CLASES DE CSS PARA CUSTOMIZAR
+  -SIZE, TAMAÑO SEGUN CLASES, RECIBE TEXTO
+  -COLOR, RECIBE UN "DARK" PARA PONER EN VERSION OSCURO EL INPUT
+  -ROUNDED, REDONDEAR EL INPUT
+  -PLACEHOLDER, TEXTO DE PLACEHOLDER EN EL SELECT
+  -OPTIONS, OPCIONES EN ARRAY PARA LA LISTA DE OPCIONES DE SELECT
+  -PROPS DE REACT-HOOK-FORM: REQUIRED, REGISTER, ERRORMESSAGE
+*/
+
 const Select = ({
   value,
   text,
@@ -76,7 +92,7 @@ const Select = ({
             }))}
         >
           {placeholder && (
-            <option value="" disabled selected>
+            <option hidden selected>
               {placeholder}
             </option>
           )}

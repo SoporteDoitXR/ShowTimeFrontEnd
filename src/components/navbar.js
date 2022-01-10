@@ -26,6 +26,7 @@ import { IoNotifications, IoSettingsSharp } from "react-icons/io5";
 import Button from "./UI/Button";
 import { Outlet, useNavigate, useLocation } from "react-router";
 import Div from "./canvas2d/div";
+import logoShowTime from "../assets/UI/Logo_showtime.png";
 
 const Navbar = () => {
   let navigation = useNavigate();
@@ -34,14 +35,22 @@ const Navbar = () => {
   const [showCollapse, setShowCollapse] = useState("d-none");
   const [showCollapseProfile, setShowCollapseProfile] = useState("d-none");
 
+  const validateModalShow = (options) => {
+    let isActive = false;
+    for (const op of options) {
+      location.includes(op) && (isActive = true);
+    }
+    return isActive;
+  };
+
   return (
     <>
       {/* Navbar relativo convencional cuando no esta en ruta /edit... */}
       {!useLocation().pathname.includes("/edit") && (
         <div className="navbar navbar-dark bg-dark z-10">
-          <button className="navbar-toggler ms-3 " type="button">
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          <div className="col-1 ms-5 ">
+            <img className="w-full" src={logoShowTime} alt="" />
+          </div>
 
           <div className="d-flex me-4 ">
             <img
@@ -94,13 +103,26 @@ const Navbar = () => {
               showNavbar ? "slideInDown" : "slideOutUp"
             }`}
           >
-            <button
-              className="navbar-dark navbar-toggler ms-3 my-2"
-              type="button"
-              onClick={() => setShowCollapse("slideInLeft")}
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
+            <div>
+              <button
+                className="navbar-dark navbar-toggler ms-3 my-2"
+                type="button"
+                onClick={() => setShowCollapse("slideInLeft")}
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <img
+                className={`w-11 ms-3  ${
+                  showCollapse != "d-nonde" && showCollapse == "slideInLeft"
+                    ? "logo-out"
+                    : showCollapse == "slideOutLeft"
+                    ? "logo-return"
+                    : ""
+                }`}
+                src={logoShowTime}
+                alt=""
+              />
+            </div>
 
             <div className="d-flex me-4 ">
               <div className="me-5 navbar">
@@ -110,7 +132,13 @@ const Navbar = () => {
                   text="Tu espacio"
                   iconLeft={HiCube}
                   iconClassName="fs-4 text-primary"
-                  onClick={() => navigation(location + "/md")}
+                  onClick={() =>
+                    validateModalShow(["/mn", "/mr", "ms"])
+                      ? navigation(location.slice(0, -2) + "md")
+                      : location.includes("/md")
+                      ? navigation(location.slice(0, -3))
+                      : navigation(location + "/md")
+                  }
                 />
               </div>
               <img
@@ -135,17 +163,24 @@ const Navbar = () => {
             positionY={70}
             positionX={1440}
           >
-            <div className="cursor-pointer">Perfil</div>
-            <div className="cursor-pointer">Mis showtime</div>
-            <div className="cursor-pointer">Cambiar usuario</div>
-            <div className="cursor-pointer">Cerrar sesión</div>
+            <div className="cursor-pointer hover-textPrimary text-black">
+              Perfil
+            </div>
+            <div className="cursor-pointer hover-textPrimary text-black">
+              Mis showtime
+            </div>
+            <div className="cursor-pointer hover-textPrimary text-black">
+              Cambiar usuario
+            </div>
+            <div className="cursor-pointer hover-textPrimary text-black">
+              Cerrar sesión
+            </div>
           </Div>
 
           {/* menu lateral */}
           <Div
-            className={`bg-dark border-end border-5 border-primary d-flex flex-column poppins-light fs-7 ${showCollapse}`}
+            className={`bg-dark border-end border-5 border-primary d-flex flex-column poppins-light fs-7 h-screen ${showCollapse}`}
             width={120}
-            height={920}
           >
             <button
               type="button"
@@ -162,11 +197,7 @@ const Navbar = () => {
               <div
                 className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
                 onClick={() =>
-                  navigation("editNetworking", {
-                    state: {
-                      type: "users",
-                    },
-                  })
+                  navigation("editNetworking", { state: { type: "users" } })
                 }
               >
                 <FaUserAlt className="fs-4 mx-auto" />
@@ -175,11 +206,7 @@ const Navbar = () => {
               <div
                 className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
                 onClick={() =>
-                  navigation("editNetworking", {
-                    state: {
-                      type: "company",
-                    },
-                  })
+                  navigation("editNetworking", { state: { type: "company" } })
                 }
               >
                 <FaBuilding className="fs-4 mx-auto" />
@@ -187,35 +214,58 @@ const Navbar = () => {
               </div>
               <div
                 className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
-                onClick={() => navigation("editMeeting")}
+                onClick={() =>
+                  navigation("editMeeting", { state: { type: "meeting" } })
+                }
               >
                 <RiSlideshow2Fill className="fs-4 mx-auto" />
                 Conferencias
               </div>
               <div
                 className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
-                onClick={() => navigation("editScene/ml")}
+                onClick={() =>
+                  navigation("editMeeting", { state: { type: "calendar" } })
+                }
               >
                 <FaCalendarAlt className=" fs-4 mx-auto" />
                 Calendario
               </div>
               <div
                 className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
-                onClick={() => navigation("editScene/mr")}
+                onClick={() =>
+                  validateModalShow(["/mn", "/ms", "md"])
+                    ? navigation(location.slice(0, -2) + "mr")
+                    : location.includes("/mr")
+                    ? navigation(location.slice(0, -3))
+                    : navigation(location + "/mr")
+                }
               >
                 <GoGraph className="fs-4 mx-auto" />
                 Reportes
               </div>
               <div
                 className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
-                onClick={() => navigation("editScene/mn")}
+                onClick={() =>
+                  validateModalShow(["/ms", "/mr", "md"])
+                    ? navigation(location.slice(0, -2) + "mn")
+                    : location.includes("/mn")
+                    ? navigation(location.slice(0, -3))
+                    : navigation(location + "/mn")
+                }
               >
                 <IoNotifications className="fs-4 mx-auto" />
                 Notificaciones
               </div>
+
               <div
                 className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
-                onClick={() => navigation("editScene/ms")}
+                onClick={() =>
+                  validateModalShow(["/mn", "/mr", "md"])
+                    ? navigation(location.slice(0, -2) + "ms")
+                    : location.includes("/ms")
+                    ? navigation(location.slice(0, -3))
+                    : navigation(location + "/ms")
+                }
               >
                 <IoSettingsSharp className="fs-4 mx-auto" />
                 Ajustes

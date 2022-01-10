@@ -44,6 +44,7 @@ import { useNavigate } from "react-router";
 import { useSearchParams } from "react-router-dom";
 import { IoNotifications, IoSettingsSharp } from "react-icons/io5";
 import { GoGraph } from "react-icons/go";
+import Notifications from "./notifications";
 
 const IndexModal = ({ type }) => {
   let navigation = useNavigate();
@@ -74,20 +75,20 @@ const IndexModal = ({ type }) => {
       >
         <div className="modal-header">
           {type == "report" && (
-            <div className="d-flex ms-3 fs-2">
+            <div className="d-flex ms-3 fs-2 user-select-none">
               <GoGraph className="fs-1 my-auto me-3" />
               Reporte
             </div>
           )}
           {type == "notification" && (
-            <div className="d-flex ms-3 fs-2">
-              <IoNotifications className="fs-1 my-auto me-3" />
+            <div className="d-flex ms-3 fs-2 user-select-none">
+              <IoNotifications className="fs-1 my-auto me-3 " />
               Notificaciones
             </div>
           )}
           {type == "settings" && (
-            <div className="d-flex ms-3 fs-2">
-              <IoSettingsSharp className="fs-1 my-auto me-3" />
+            <div className="d-flex ms-3 fs-2 user-select-none">
+              <IoSettingsSharp className="fs-1 my-auto me-3 " />
               Ajustes
             </div>
           )}
@@ -124,6 +125,7 @@ const IndexModal = ({ type }) => {
               </div>
             </div>
           )}
+
           {/* Close */}
           <button
             type="button"
@@ -152,6 +154,9 @@ const IndexModal = ({ type }) => {
             />
           </div>
         )}
+
+        {/* ESTA PARTE APARECE SOLO SI PROC TYPE ES NOTIFICATION, SOLO PASA CUANDO RUTA ES /mn */}
+        {type == "notification" && <Notifications />}
       </Div>
     </div>
   );

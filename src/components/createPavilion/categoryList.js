@@ -16,7 +16,8 @@ import plantilla1 from "../../assets/plantillas/esc_plantilla-1.png";
 const CategoryList = ({ setPavilionControl }) => {
   return (
     <div className="row row-cols-3 g-4 m-0">
-      <CategoryCard name="Agricultura" img={plantilla1} />
+      <CategoryCard name="Agricultura" img={plantilla1} admin={true} />
+      <CategoryCard name="Vista user no admin" img={plantilla1} />
       <CategoryCard addCategory={() => setPavilionControl(1)} />
     </div>
   );

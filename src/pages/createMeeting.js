@@ -26,9 +26,12 @@ import {
   RiArrowRightSLine,
   RiSlideshow2Fill,
 } from "react-icons/ri";
+import { FaCalendarAlt } from "react-icons/fa";
 
 const createMeeting = () => {
+  const location = useLocation();
   const type = location.state?.type;
+
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -52,10 +55,17 @@ const createMeeting = () => {
         positionY={150}
         positionX={220}
       >
-        <div className="d-flex ms-3 fs-2">
-          <RiSlideshow2Fill className="fs-1 my-auto me-3" />
-          Conferencias
-        </div>
+        {type == "meeting" ? (
+          <div className="d-flex ms-3 fs-2">
+            <RiSlideshow2Fill className="fs-1 my-auto me-3" />
+            Conferencias
+          </div>
+        ) : (
+          <div className="d-flex ms-3 fs-2">
+            <FaCalendarAlt className="fs-1 my-auto me-3" />
+            Calendario
+          </div>
+        )}
         <div className="d-flex justify-content-end">
           <Button
             className="btn light-bg text-white px-5 py-3 me-3 poppins-bold "

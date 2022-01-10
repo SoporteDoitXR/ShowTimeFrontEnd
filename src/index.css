@@ -233,6 +233,9 @@ code {
 .text-gray {
   color: #7f7b8d;
 }
+.text-blue {
+  color: #8d5fff !important;
+}
 .bg-dark-transparent {
   background-color: black;
   opacity: 0.85;
