@@ -20,6 +20,7 @@ import UserShowTimes from "./pages/userShowTimes";
 import EditPavilion from "./pages/createPavilion";
 import EditNetworking from "./pages/createNetworking";
 import CreateMeeting from "./pages/createMeeting";
+import CreatePrivate from "./pages/createPrivate";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -51,6 +52,12 @@ export default function App() {
             <Route path="ms" element={<IndexModal type={"settings"} />} />
           </Route>
           <Route path="editMeeting" element={<CreateMeeting />}>
+            <Route path="md" element={<IndexModal type={"normal"} />} />
+            <Route path="mr" element={<IndexModal type={"report"} />} />
+            <Route path="mn" element={<IndexModal type={"notification"} />} />
+            <Route path="ms" element={<IndexModal type={"settings"} />} />
+          </Route>
+          <Route path="editPrivateMeeting" element={<CreatePrivate />}>
             <Route path="md" element={<IndexModal type={"normal"} />} />
             <Route path="mr" element={<IndexModal type={"report"} />} />
             <Route path="mn" element={<IndexModal type={"notification"} />} />

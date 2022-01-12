@@ -214,18 +214,14 @@ const Navbar = () => {
               </div>
               <div
                 className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
-                onClick={() =>
-                  navigation("editMeeting", { state: { type: "meeting" } })
-                }
+                onClick={() => navigation("editMeeting")}
               >
                 <RiSlideshow2Fill className="fs-4 mx-auto" />
                 Conferencias
               </div>
               <div
                 className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"
-                onClick={() =>
-                  navigation("editMeeting", { state: { type: "calendar" } })
-                }
+                onClick={() => navigation("editPrivateMeeting")}
               >
                 <FaCalendarAlt className=" fs-4 mx-auto" />
                 Calendario

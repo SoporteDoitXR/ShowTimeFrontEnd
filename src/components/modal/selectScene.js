@@ -59,6 +59,7 @@ const selecScene = () => {
           "https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
         }
         cardMode={"showScene"}
+        onClick={() => navigation("/editPrivateMeeting")}
       />
     </div>
   );
