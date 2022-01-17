@@ -2,15 +2,28 @@
   ESTE DOCUMENTO ES UNA PAGINA PRINCIPAL DE LOGIN, HACE USO DE REACT-HOOK-FORM PARA EL FORMULARIO Y CONTROL DE ERRORES
 */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../components/UI/Input";
 import Button from "../components/UI/Button";
 import { MdAlternateEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  deleteUser,
+  editUser,
+  getAllUsers,
+  getUser,
+  postUser,
+} from "../providers/apiTest";
+import {
+  getIdUser,
+  logCookies,
+  saveCookieUser,
+} from "../providers/cookie-user";
 
 const login = () => {
+  let navigation = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,9 +32,50 @@ const login = () => {
   } = useForm();
 
   // FUNCION QUE SE EJECUTA SI NO HAY ERRORES
-  const onSubmit = () => {
-    console.log("nice");
+  const onSubmit = async (data) => {
+    // getAllUsers()
+    //   .then((data) => data.json())
+    //   .then((data) => console.log(data));
+    getUser(data.email)
+      .then((data) => data.json())
+      .then((response) => {
+        return response.data;
+      })
+      .then((response) => {
+        if (response.length > 0) {
+          console.log(response);
+          saveCookieUser(response[0].id, response[0].name, response[0].email);
+          alert("Bienvenido " + response[0].name);
+          navigation("/admin");
+        } else {
+          alert("El usuario no existe");
+        }
+      });
+    // editUser(2197, {
+    //   name: "test cambio",
+    //   gender: "Male",
+    //   email: data.email,
+    //   status: "Active",
+    // })
+    //   .then((data) => data.json())
+    //   .then((data) => console.log(data));
+    // id 3029
+    // postUser({
+    //   name: "test user",
+    //   gender: "Male",
+    //   email: data.email,
+    //   status: "Active",
+    // })
+    //   .then((data) => data.json())
+    //   .then((data) => console.log(data));
+    // console.log(data.email);
+    // deleteUser(3029).then((data) => console.log(data));
   };
+
+  useEffect(() => {
+    getIdUser() && navigation("/admin");
+  }, []);
+
   return (
     <div className="container mt-5">
       <form

@@ -5,16 +5,21 @@
   TEMPORALMENTE, SE ESTAN CONTROLANDO LAS SECCIONES DE VER SHOWTIMES Y CONFIGURACION DE USUARIO POR UN ESTADO/STATE
 */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiCube } from "react-icons/hi";
 import { IoDocumentTextSharp, IoSettingsSharp } from "react-icons/io5";
 import { MdAddCircle } from "react-icons/md";
 import { useNavigate } from "react-router";
 import AdminShowtimes from "../components/userAdmin/adminShowtimes";
 import UserProfile from "../components/userAdmin/userProfile";
+import { getIdUser } from "../providers/cookie-user";
 
 const userShowTimes = () => {
   let navigation = useNavigate();
+
+  useEffect(() => {
+    !getIdUser() && navigation("/login");
+  }, []);
 
   const [component, setcomponent] = useState(0);
   return (
@@ -55,8 +60,8 @@ const userShowTimes = () => {
       </div>
 
       {/* SECCION DE COMPONENTES */}
-      <div class="col ">
-        <div class="col-10 mx-auto mt-5">
+      <div className="col ">
+        <div className="col-10 mx-auto mt-5">
           {component == 0 && <AdminShowtimes />}
           {component == 1 && <UserProfile />}
         </div>

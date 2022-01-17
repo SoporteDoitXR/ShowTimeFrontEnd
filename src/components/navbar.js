@@ -27,6 +27,7 @@ import Button from "./UI/Button";
 import { Outlet, useNavigate, useLocation } from "react-router";
 import Div from "./canvas2d/div";
 import logoShowTime from "../assets/UI/Logo_showtime.png";
+import { logOutUser } from "../providers/cookie-user";
 
 const Navbar = () => {
   let navigation = useNavigate();
@@ -56,10 +57,44 @@ const Navbar = () => {
             <img
               src={profileIMG}
               alt=""
-              className="navbar h-8 rounded-circle"
+              className="navbar h-8 rounded-circle cursor-pointer"
+              onClick={() =>
+                showCollapseProfile != "fadeIn"
+                  ? setShowCollapseProfile("fadeIn")
+                  : setShowCollapseProfile("fadeOut")
+              }
             />
             <FaRegQuestionCircle className="text-primary ms-3 fs-2 my-auto" />
           </div>
+
+          {/* MINI MENU COLAPSE */}
+          <Div
+            className={`bg-white rounded-xl d-flex flex-column poppins-medium fs-6 justify-content-evenly ps-2 ${showCollapseProfile}`}
+            height={150}
+            width={160}
+            positionY={70}
+            positionX={1440}
+          >
+            <div className="cursor-pointer hover-textPrimary text-black">
+              Perfil
+            </div>
+            <div className="cursor-pointer hover-textPrimary text-black">
+              Mis showtime
+            </div>
+            <div className="cursor-pointer hover-textPrimary text-black">
+              Cambiar usuario
+            </div>
+            <div
+              className="cursor-pointer hover-textPrimary text-black"
+              onClick={() => {
+                logOutUser();
+                navigation("/login");
+                setShowCollapseProfile("fadeOut");
+              }}
+            >
+              Cerrar sesión
+            </div>
+          </Div>
         </div>
       )}
 
