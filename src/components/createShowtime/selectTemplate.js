@@ -1,3 +1,10 @@
+/*
+  ESTE COMPONENTE ES DE CREACION DE SHOWTIME O EVENTO.
+  SU FUNCION ES MOSTRAR LAS PLANTILLAS QUE HAY PARA QUE USUARIO ELIJA CUALES USAR
+
+  SE TRABAJA COMO FORMULARIO CON REACT-HOOK-FORM PARA FACILITAR SABER CUAL SE SELECCIONO Y CUAL NO
+*/
+
 import React from "react";
 import Button from "../../components/UI/Button";
 import { useForm } from "react-hook-form";
@@ -12,18 +19,19 @@ const SelectTemplate = ({ sceneController }) => {
     formState: { errors },
   } = useForm();
 
+  //FUNCION QUE SE EJECUTA AL FINALIZAR VALIDACION
   const onSubmit = () => {
     sceneController(2);
   };
   return (
     <form
-      className="mt-6 needs-validation"
+      className="mt-6 needs-validation text-white"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
       <div className="col-12 text-center">
-        <div className="fs-2">Selecciona tus escenarios</div>
-        <div className="">
+        <div className="fs-3 poppins-medium">Selecciona tus escenarios</div>
+        <div className=" poppins-medium">
           Puedes comenzar creando un espacio para tu empresa
         </div>
       </div>
@@ -83,13 +91,13 @@ const SelectTemplate = ({ sceneController }) => {
 
       <div className="d-flex justify-content-center gap-5 mt-8">
         <Button
-          className="btn btn-dark px-5"
+          className="btn btn-dark px-5 poppins-bold"
           text="Cancelar"
           onClick={() => sceneController(0)}
         />
         <Button
           type="submit"
-          className="btn btn-primary px-5"
+          className="btn btn-light px-5 poppins-bold"
           text="Siguiente"
         />
       </div>

@@ -1,3 +1,12 @@
+/*
+  COMPONENTE REUTILIZABLE DE BOTON.
+  EL COMPONENTE VALIDA SI SOLO VA A TENER UN ICONO, O SI TENDRA EN ALGUNO DE LOS LADOS
+  CONFIGURABLE EL TAMAÑO, COLOR, ETC. INCLUSO PUEDE AGREGAR MAS CLASSNAME COMO PROP
+
+  TAMBIEN RECIBE ICONOS COMO PROPS, ESTOS PUEDEN SER UNA IMAGEN PERO PREFERIBLEMENTE SEA UN ICONO
+  DE REACT-ICONS
+*/
+
 const Button = ({
   type,
   color,
@@ -24,17 +33,17 @@ const Button = ({
         className={`cursor-pointer d-flex
           ${
             size == "small"
-              ? "h-8 w-8 text-sm md:text-base"
+              ? "h-8 w-8"
               : size == "large"
-              ? "text-xl md:text-2xl h-11 w-11"
-              : "text-lg md:text-xl h-10 w-10"
+              ? "fs-3 h-11 w-11"
+              : "fs-6 h-10 w-10"
           }
           ${
             rounded == "none"
               ? "rounded-none"
               : rounded == "semi"
-              ? "rounded-lg"
-              : "rounded-full"
+              ? "rounded-2xl"
+              : "rounded-pill"
           }
           ${className}`}
         onClick={onClick}

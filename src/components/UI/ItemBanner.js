@@ -1,3 +1,12 @@
+/*
+  COMPONENTE DE ITEMBANNER, USADO EN COMPONENTE DE EDITOR DE ESCENAS
+  MUESTRA EL NOMBRE DE LOS ELEMENTOS DEL ESCENARIO
+  PROPS:
+  -TEXT, TEXTO DE LOS LABEL
+  .ONCLICKEDIT, FUNCION PARA EL ONLCIK DE EDITAR
+  -ONCLICKDELETE, FUNCION PARA EL ONCLICK DE BORRAR
+*/
+
 import React from "react";
 
 import { MdDeleteForever, MdInsertDriveFile } from "react-icons/md";
@@ -7,7 +16,7 @@ const ItemBanner = ({ text, onClickEdit, onClickDelete }) => {
   return (
     <div className="col-12 border mx-auto text-white d-flex justify-content-between rounded-2xl p-2 my-2 ">
       <MdInsertDriveFile className="my-auto fs-5 me-2" />
-      <p className="col-7 text-overflow my-auto">{text}</p>
+      <p className="col-7 text-overflow my-auto fs-6 poppins-medium">{text}</p>
 
       <div className="col d-flex justify-content-end ">
         <div

@@ -1,3 +1,8 @@
+/*
+  ESTE ES UN COMPONENTE DE CREACION DE ESPACIO O SHOWTIME. 
+  SU FUNCION ES DE FORMULARIO DE NOMBRE Y DESCRIPCION DE EVENTO, MANEJADOS POR REACT-HOOK-FORM
+*/
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import Input from "../../components/UI/Input";
@@ -16,16 +21,16 @@ const CreateShowTime = ({ sceneController }) => {
   };
   return (
     <form
-      className=" g-3 needs-validation"
+      className="g-3 needs-validation"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
-      <div className="text-center fs-3">Crea tu espacio</div>
-      <div className="text-center fs-4 mt-3">
+      <div className="text-center fs-3 poppins-medium">Crea tu espacio</div>
+      <div className="text-center fs-5 mt-3 poppins-medium">
         Añade la información que identificara tu espacio
       </div>
 
-      <div className="col-md-6 mx-auto mt-5">
+      <div className="col-md-6 mx-auto mt-5 ">
         <Input
           id={"name_sts"}
           text={"Nombre de showtime"}
@@ -36,7 +41,7 @@ const CreateShowTime = ({ sceneController }) => {
           required
         />
       </div>
-      <div className="col-md-6 mx-auto">
+      <div className="col-md-6 mx-auto ">
         <Input
           id={"description_st"}
           text={"Descripción"}
@@ -49,10 +54,14 @@ const CreateShowTime = ({ sceneController }) => {
       </div>
 
       <div className="d-flex justify-content-center gap-5 mt-5">
-        <Button type="submit" className="btn btn-dark px-5" text="Cancelar" />
         <Button
           type="submit"
-          className="btn btn-primary px-5"
+          className="btn btn-dark px-5 poppins-bold"
+          text="Cancelar"
+        />
+        <Button
+          type="submit"
+          className="btn btn-primary px-5 poppins-bold"
           text="Siguiente"
         />
       </div>
