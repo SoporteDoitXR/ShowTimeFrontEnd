@@ -17,9 +17,9 @@ import { getIdUser } from "../providers/cookie-user";
 const userShowTimes = () => {
   let navigation = useNavigate();
 
-  useEffect(() => {
+  /*useEffect(() => {
     !getIdUser() && navigation("/login");
-  }, []);
+  }, []);*/
 
   const [component, setcomponent] = useState(0);
   return (

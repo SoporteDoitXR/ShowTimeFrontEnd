@@ -22,6 +22,7 @@ const Button = ({
   iconClassName,
   textColor,
   disabled,
+  style
 }) => {
   const IconLeft = iconLeft;
   const IconRight = iconRight;
@@ -54,6 +55,7 @@ const Button = ({
   }
   return (
     <button
+      style={{style}}
       type={type == "submit" ? "submit" : type == "form" ? "submit" : "button"}
       className={`
         ${

@@ -19,10 +19,12 @@ import {
 import {
   getIdUser,
   logCookies,
-  saveCookieUser,
+  saveToken,
 } from "../providers/cookie-user";
 
-const login = () => {
+import {apiLogin} from "../providers/apiLogin";
+
+const login = ({ }) => {
   let navigation = useNavigate();
   const {
     register,
@@ -33,19 +35,14 @@ const login = () => {
 
   // FUNCION QUE SE EJECUTA SI NO HAY ERRORES
   const onSubmit = async (data) => {
-    // getAllUsers()
-    //   .then((data) => data.json())
-    //   .then((data) => console.log(data));
-    getUser(data.email)
+    apiLogin(data.email,data.password)
       .then((data) => data.json())
       .then((response) => {
-        return response.data;
-      })
-      .then((response) => {
-        if (response.length > 0) {
-          console.log(response);
-          saveCookieUser(response[0].id, response[0].name, response[0].email);
-          alert("Bienvenido " + response[0].name);
+        if (response.token) {
+          //console.log(response);
+          saveToken(response.token);
+          //setToken(response.token);
+          alert("Bienvenido " /*+ response[0].name*/);
           navigation("/admin");
         } else {
           alert("El usuario no existe");
@@ -72,9 +69,9 @@ const login = () => {
     // deleteUser(3029).then((data) => console.log(data));
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     getIdUser() && navigation("/admin");
-  }, []);
+  }, []);*/
 
   return (
     <div className="container mt-5">
@@ -109,7 +106,7 @@ const login = () => {
           />
         </div>
         <div className="col-md-5 mx-auto my-3 d-flex justify-content-end">
-          <Link className="text-gray text-decoration-none d-flex-end" to=".">
+          <Link className="text-gray text-decoration-none d-flex-end" to="/recoverPassword">
             Olvide mi contraseña
           </Link>
         </div>

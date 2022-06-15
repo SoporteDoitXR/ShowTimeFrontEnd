@@ -43,6 +43,26 @@
   color: #444;
 }
 
+.contenido-down {
+  position: absolute;
+  top: 100;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 1.5rem;
+  color: #444;
+}
+
+.contenido-in {
+  position: absolute;
+  top: 50;
+  left: 0;
+  bottom: 50;
+  right: 100;
+  font-size: 1.5rem;
+  color: rgb(196, 13, 13);
+}
+
 /**
 *WIDTH Y HEIGHT
 **/

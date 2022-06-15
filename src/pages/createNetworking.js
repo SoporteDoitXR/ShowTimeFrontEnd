@@ -13,23 +13,19 @@
   SE ESTA TRABAJANDO EN ESTATICO, SOLO MOSTRANDO EL UI DE LA LISTA DE EMPRESAS Y USUARIOS
 */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Scene from "../components/canvas2d/scene";
 import Div from "../components/canvas2d/div";
 import plantilla1 from "../assets/plantillas/esc_plantilla-1.png";
-import {
-  FaBuilding,
-  FaPlus,
-  FaSearch,
-  FaTrash,
-  FaUserAlt,
-} from "react-icons/fa";
+import { FaBuilding, FaPlus, FaSearch, FaTrash,FaUserAlt } from "react-icons/fa";
 import Input from "../components/UI/Input";
 import Button from "../components/UI/Button";
 import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
 import { MdEdit } from "react-icons/md";
 import { Outlet, useLocation } from "react-router-dom";
 import IndexMiniModal from "../components/miniModal";
+import Cookies from "universal-cookie";
+import { getUsers } from "../providers/apiUser";
 
 const networking = () => {
   const location = useLocation();
@@ -38,6 +34,22 @@ const networking = () => {
   const type = location.state?.type;
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
+  const [users, setUsers] = useState();
+  const cookies = new Cookies();
+  const tableTitles = (type === "company") ? ["Nombre", "Sitio Web", "Administradores", "Integrantes"] 
+                      : ["Nombre completo","Nombre de usuario","Correo electrónico","Tipo de usuario"];
+
+  useEffect(() => {
+    let token = cookies.get("token");
+    if(token){
+      getUsers(token)
+      .then((data) => data.json())
+      .then((response) => {
+        //console.log(response);
+        setUsers(response);
+      });
+    }
+  },[])
 
   return (
     <Scene
@@ -109,146 +121,27 @@ const networking = () => {
         positionX={220}
       >
         <div className="primary-bg d-flex py-3 px-4 rounded-2xl fs-5">
-          <div className="col text-truncate">Nombre completo</div>
-          <div className="col text-truncate">Nombre de usuario</div>
-          <div className="col text-truncate">Correo electrónico</div>
-          <div className="col text-truncate">Tipo de usuario</div>
+          {tableTitles.map((title, i) => (
+            <div className="col text-truncate">{title}</div>
+          ))
+          }
           <div className="col-1 ">Acciones</div>
         </div>
         {/* LISTA DE USUARIOS O EMPRESAS */}
         <div className="d-flex flex-column h-85 custom-scroll p-0 mt-3">
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
+          {users?.map((user, i) => (
+            <div key={i} className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
+              <div className="col text-truncate me-5">{`${user.name} ${user.lastName}`}</div>
+              <div className="col text-truncate me-5">{user.userName}</div>
+              <div className="col text-truncate me-5">{user.email}</div>
+              <div className="col text-truncate me-5">{user.showtimeIdRole}</div>
+              <div className="col-1 d-flex justify-content-between">
+                <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
+                <MdEdit className="cursor-pointer text-white fs-3" />
+                <FaTrash className="cursor-pointer text-danger fs-3" />
+              </div>
             </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
-          <div className="dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2">
-            <div className="col text-truncate me-5">Nombre de ejemplo</div>
-            <div className="col text-truncate me-5">userExample</div>
-            <div className="col text-truncate me-5">correo@correo.com</div>
-            <div className="col text-truncate me-5">visitante</div>
-            <div className="col-1 d-flex justify-content-between">
-              <IoChatbubbleEllipsesSharp className="cursor-pointer text-white fs-3" />
-              <MdEdit className="cursor-pointer text-white fs-3" />
-              <FaTrash className="cursor-pointer text-danger fs-3" />
-            </div>
-          </div>
+          ))}
         </div>
       </Div>
       {showModal && (

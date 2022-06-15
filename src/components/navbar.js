@@ -32,6 +32,7 @@ import { logOutUser } from "../providers/cookie-user";
 const Navbar = () => {
   let navigation = useNavigate();
   let location = useLocation().pathname;
+  let showImagePicture = (useLocation().pathname.includes("/login") || useLocation().pathname.includes("/recoverPassword")) ? false : false;
   const [showNavbar, setShowNavbar] = useState(true);
   const [showCollapse, setShowCollapse] = useState("d-none");
   const [showCollapseProfile, setShowCollapseProfile] = useState("d-none");
@@ -53,19 +54,21 @@ const Navbar = () => {
             <img className="w-full" src={logoShowTime} alt="" />
           </div>
 
-          <div className="d-flex me-4 ">
-            <img
-              src={profileIMG}
-              alt=""
-              className="navbar h-8 rounded-circle cursor-pointer"
-              onClick={() =>
-                showCollapseProfile != "fadeIn"
-                  ? setShowCollapseProfile("fadeIn")
-                  : setShowCollapseProfile("fadeOut")
-              }
-            />
-            <FaRegQuestionCircle className="text-primary ms-3 fs-2 my-auto" />
-          </div>
+          {showImagePicture && (
+            <div className="d-flex me-4 ">
+              <img
+                src={profileIMG}
+                alt=""
+                className="navbar h-8 rounded-circle cursor-pointer"
+                onClick={() =>
+                  showCollapseProfile != "fadeIn"
+                    ? setShowCollapseProfile("fadeIn")
+                    : setShowCollapseProfile("fadeOut")
+                }
+              />
+              <FaRegQuestionCircle className="text-primary ms-3 fs-2 my-auto" />
+            </div>
+          )}
 
           {/* MINI MENU COLAPSE */}
           <Div
@@ -224,10 +227,10 @@ const Navbar = () => {
               onClick={() => setShowCollapse("slideOutLeft")}
             ></button>
             <div className="d-flex flex-column justify-content-between h-75 mt-3">
-              <div className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary">
+              {/*<div className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary">
                 <HiCube className="fs-4 mx-auto" />
                 Escenario 3D
-              </div>
+              </div>*/}
 
               <div
                 className=" d-flex flex-column mx-auto cursor-pointer hover-textPrimary"

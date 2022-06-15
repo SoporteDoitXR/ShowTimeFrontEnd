@@ -1,0 +1,153 @@
+[
+    {
+        "slug" : 1,
+        "name" : "L Piedra",
+        "description" : "Description of the stand 1",
+        "background_image" : "../../../images/backgrounds/img_stand2.png",
+        "element_image" : [
+            {"img": "../../../images/elements/STAND-CLIENTES.jpg", "width" : "168", "height" : "374", "top" : "347", "left" : "445"},
+            {"img": "../../../images/elements/StandLPiedra/logo.jpg", "width" : "334", "height" : "117", "top" : "108", "left" : "742"},
+            {"img": "../../../images/elements/StandLPiedra/banner.jpg", "width" : "172", "height" : "412", "top" : "360", "left" : "1225"}
+        ],
+        "video" : {
+            "url" : "../../../images/elements/StandLPiedra/Video Stand L Piedra.mp4",
+            "width" : "524", "height" : "295", "top" : "243", "left" : "645"
+        },
+        "info_text" : "Servimos a las PYMES con formación y consultoría, bajo un enfoque sistémico, orientación a resultados, con un equipo multidisciplinario, innovación tecnológica.  Somos una empresa PYME que conoce lo que vivimos quienes estamos inmersos en este maravilloso mundo. ",
+        "logo" : "../../../images/elements/StandLPiedra/logo-big.png",
+        "pdf_url": "../../../files/StandLPiedra/Catálogo L Piedra.pdf",
+        "dates_link" : "https://calendly.com/lpiedracr",
+        "contact": [
+            { "name" :  "www.lpiedra.com", "href" : "https://www.lpiedra.com/", "icon" : "web" },
+            { "name" : "(506) 88830192 / 7088 9771", "href" : "https://wa.me/7088 9771", "icon" : "phone"},
+            { "name" : "lpiedra@lpiedra.com", "href" : "mailto:lpiedra@lpiedra.com", "icon" : "mail"},
+            { "name" : "Link de Facebook", "href" : "https://www.facebook.com/L-Piedra-Consultor%C3%ADa-Empresarial-271758499648868/", "icon" : "facebook"}
+        ] 
+    },
+    {
+        "slug" : 2,
+        "name" : "Piñatas Aromati",
+        "description" : "Description of the stand 2",
+        "background_image" : "../../../images/backgrounds/img_stand2.png",
+        "element_image" : [
+            {"img": "../../../images/elements/STAND-CLIENTES.jpg", "width" : "168", "height" : "374", "top" : "347", "left" : "445"},
+            {"img": "../../../images/elements/StandPinatasAromati/logo-big.png", "width" : "336", "height" : "120", "top" : "108", "left" : "740"},
+            {"img": "../../../images/elements/StandPinatasAromati/banner.jpg", "width" : "172", "height" : "412", "top" : "360", "left" : "1225"}
+        ],
+        "video" : {
+            "url" : "../../../images/elements/StandPinatasAromati/video piñatas Aromati.mp4",
+            "width" : "524", "height" : "295", "top" : "243", "left" : "645"
+        },
+        "info_text" : "Piñatas aromati, es una empresa que fabrica piñatas figurativas en 3D, exclusivas y de tamaños diferentes. Ofreciendo al cliente una piñata acta para cada celebración con resistencia y belleza de acabados.",
+        "logo" : "../../../images/elements/StandPinatasAromati/logo-big.png",
+        "pdf_url": "../../../files/StandPinatasAromati/catalogo aromati.pdf",
+        "dates_link" : "https://calendly.com/aromati38 ",
+        "contact": [
+            { "name" : "(506) 60803947", "href" : "https://wa.me/60803947 ", "icon" : "phone"},
+            { "name" : "lizetharomati@yahoo.es", "href" : "mailto:lizetharomati@yahoo.es", "icon" : "mail"},
+            { "name" : "Link de Facebook", "href" : "https://www.facebook.com/pinatasaromati/", "icon" : "facebook"}
+        ] 
+    },
+    {
+        "slug" : 3,
+        "name" : "Bendita",
+        "description" : "Description of the stand 3",
+        "background_image" : "../../../images/backgrounds/img_stand2.png",
+        "element_image" : [
+            {"img": "../../../images/elements/STAND-CLIENTES.jpg", "width" : "168", "height" : "374", "top" : "347", "left" : "445"},
+            {"img": "../../../images/elements/StandBendita/logo-big.png", "width" : "336", "height" : "120", "top" : "108", "left" : "740"},
+            {"img": "../../../images/elements/StandBendita/banner.jpg", "width" : "172", "height" : "412", "top" : "360", "left" : "1225"}
+        ],
+        "video" : {
+            "url" : "../../../images/elements/StandPinatasAromati/video piñatas Aromati.mp4",
+            "width" : "524", "height" : "295", "top" : "243", "left" : "645"
+        },
+        "info_text" : "Plataforma digital colaborativa que busca conectar mujeres con negocios liderados por otras mujeres. Las emprendedoras podrán aumentar la visibilidad de sus negocios, por medio de reviews y ofertas personalizadas. Todas las mujeres aliadas podrán descargar estas promociones, así como participar del programa “Aprendamos Juntas”, para impulsar su desarrollo personal y profesional.",
+        "logo" : "../../../images/elements/StandBendita/logo-big.png",
+        "pdf_url": "../../../files/StandBendita/catalago bendita.pdf",
+        "dates_link" : "https://calendly.com/immerso/consultoria?month=2022-05",
+        "contact": [
+            { "name" :  "https://benditaentretodas.com/", "href" : "https://benditaentretodas.com/", "icon" : "web" },
+            { "name" : "(506) 88645454", "href" : "https://wa.me/88645454", "icon" : "phone"},
+            { "name" : "info@benditaentretodas.com", "href" : "mailto:info@benditaentretodas.com", "icon" : "mail"},
+            { "name" : "Link de Facebook", "href" : "https://www.facebook.com/BenditaEntreTodas", "icon" : "facebook"},
+            { "name" : "Link de Instagram", "href" : "https://www.instagram.com/benditaentretodas", "icon" : "instagram"}
+        ] 
+    },
+    {
+        "slug" : 4,
+        "name" : "Adry Sembrando Esperanza",
+        "description" : "Description of the stand 4",
+        "background_image" : "../../../images/backgrounds/img_stand2.png",
+        "element_image" : [
+            {"img": "../../../images/elements/STAND-CLIENTES.jpg", "width" : "168", "height" : "374", "top" : "347", "left" : "445"},
+            {"img": "../../../images/elements/StandAdrySembrandoEsperanza/logo-big.png", "width" : "336", "height" : "120", "top" : "108", "left" : "740"},
+            {"img": "../../../images/elements/StandAdrySembrandoEsperanza/banner.jpg", "width" : "172", "height" : "412", "top" : "360", "left" : "1225"}
+        ],
+        "video" : {
+            "url" : "../../../images/elements/StandAdrySembrandoEsperanza/Adry Sembrando Esperanzas.mp4",
+            "width" : "524", "height" : "295", "top" : "243", "left" : "645"
+        },
+        "info_text" : "Adry Sembrando Esperanza nació hace 4 años como un proyecto en pro del paciente oncólogo para cubrir las necesidades de apoyos de personas en tratamiento médico como quimioterapia y cirugías. Hoy ampliamos nuestro proyecto para realizar una microempresa de elaboración de artículos para pacientes en tratamientos médicos 100% personalizados según la necesidad del cliente.",
+        "logo" : "../../../images/elements/StandAdrySembrandoEsperanza/logo-big-transparent.png",
+        "pdf_url": "../../../files/StandAdrySembrandoEsperanza/Adry Sembrando Esperanza.pdf",
+        "dates_link" : "https://calendly.com/adrysembrandoesperanza",
+        "contact": [
+            { "name" : "(506) 85091926", "href" : "https://wa.me/85091926", "icon" : "phone"},
+            { "name" : "adrymonterobre@gmail.com", "href" : "mailto:adrymonterobre@gmail.com", "icon" : "mail"},
+            { "name" : "Link de Facebook", "href" : " https://www.facebook.com/adrysembrandoesperanza/", "icon" : "facebook"}
+        ] 
+    },
+    {
+        "slug" : 5,
+        "name" : "Stand 5",
+        "description" : "Description of the stand 5",
+        "background_image" : "../../../images/backgrounds/img_stand2.png",
+        "element_image" : [
+            {"img": "../../../images/elements/wallpaper.jpg", "width" : "498", "height" : "148", "top" : "30", "left" : "560"},
+            {"img": "../../../images/elements/wallpaper.jpg", "width" : "570", "height" : "320", "top" : "196", "left" : "526"},
+            {"img": "../../../images/elements/wallpaper.jpg", "width" : "209", "height" : "450", "top" : "348", "left" : "1505"}
+        ],
+        "video" : {
+            "url" : "https://www.youtube.com/embed/2ec010HZeZw",
+            "width" : "498", "height" : "300", "top" : "60", "left" : "560"
+        },
+        "info_text" : "Texto de la infomacion del stand 5.",
+        "logo" : "../../../images/elements/Logo_showtime.png",
+        "pdf_url": "../../../files/prueba.pdf",
+        "dates_link" : "https://calendly.com/immerso/consultoria?month=2022-05",
+        "contact": [
+            { "name" :  "www.autoexpo2022.com", "href" : "https://www.autoexpo2022.com/", "icon" : "phone" },
+            { "name" : "+800 000 555", "href" : "https://wa.me/87980994", "icon" : "phone"},
+            { "name" : "info@autoexpo.com", "href" : "mailto:info@autoexpo.com", "icon" : "mail"},
+            { "name" : "Link de Facebook", "href" : "https://www.facebook.com/yerlin.arias.1/", "icon" : "facebook"},
+            { "name" : "Link de Twitter", "href" : "https://www.twitter.com/yerlin.arias.1/", "icon" : "twitter"}
+        ] 
+    },
+    {
+        "slug" : 6,
+        "name" : "Stand 6",
+        "description" : "Description of the stand 6",
+        "background_image" : "../../../images/backgrounds/img_stand2.png",
+        "element_image" : [
+            {"img": "../../../images/elements/wallpaper.jpg", "width" : "498", "height" : "148", "top" : "30", "left" : "560"},
+            {"img": "../../../images/elements/wallpaper.jpg", "width" : "570", "height" : "320", "top" : "196", "left" : "526"},
+            {"img": "../../../images/elements/wallpaper.jpg", "width" : "209", "height" : "450", "top" : "348", "left" : "1505"}
+        ],
+        "video" : {
+            "url" : "https://www.youtube.com/embed/2ec010HZeZw",
+            "width" : "498", "height" : "300", "top" : "60", "left" : "560"
+        },
+        "info_text" : "Texto de la infomacion del stand 6.",
+        "logo" : "../../../images/elements/Logo_showtime.png",
+        "pdf_url": "../../../files/prueba.pdf",
+        "dates_link" : "https://calendly.com/immerso/consultoria?month=2022-05",
+        "contact": [
+            { "name" :  "www.autoexpo2022.com", "href" : "https://www.autoexpo2022.com/", "icon" : "phone" },
+            { "name" : "+800 000 555", "href" : "https://wa.me/87980994", "icon" : "phone"},
+            { "name" : "info@autoexpo.com", "href" : "mailto:info@autoexpo.com", "icon" : "mail"},
+            { "name" : "Link de Facebook", "href" : "https://www.facebook.com/yerlin.arias.1/", "icon" : "facebook"},
+            { "name" : "Link de Twitter", "href" : "https://www.twitter.com/yerlin.arias.1/", "icon" : "twitter"}
+        ] 
+    }
+]

@@ -80,7 +80,7 @@ const Input = ({
               type={type == "password" ? (!showPassword ? type : "text") : type}
               onKeyDown={onKeyDown && onKeyDown}
               defaultValue=""
-              className={`py-2 w-full form-control  rounded-xl ${
+              className={`${size == "large" ? "py-3" : "py-2"} w-full form-control  rounded-xl ${
                 color == "dark"
                   ? "dark-bg-2 border-light border text-white"
                   : "border-dark border-2"
@@ -101,7 +101,7 @@ const Input = ({
               type={type}
               onKeyDown={onKeyDown && onKeyDown}
               defaultValue=""
-              className={`py-2 w-full form-control  rounded-xl ${
+              className={`${size == "large" ? "py-3" : "py-2"} w-full form-control  rounded-xl ${
                 color == "dark"
                   ? "dark-bg-2 border-light border text-white"
                   : "border-dark border-2"
