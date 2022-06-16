@@ -50,6 +50,7 @@ const Div = ({
         left: `${positionX}px`,
         color: `${color}`,
         overflowX: `${scroll ? "auto" : "none"}`,
+       // overflowY: `${scroll ? "auto" : "none"}`,
         zIndex: `${zIndex}`,
       }}
       onClick={onClick}

@@ -12,12 +12,11 @@ import { useState } from "react";
 
 const Scene = ({
   children,
-  aspect, //Aspecto de pantalla
+  aspect = "ratio16-9", //Aspecto de pantalla
   bgColor, //Codigo de color para el fondo (#0000)
   bgImage, //Imagen de fondo
   animation,
   className,
-  childrenDown
 }) => {
   const ref = useRef(null);
   const refAux = useRef(null);
@@ -137,7 +136,7 @@ const Scene = ({
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div ref={refContent} className={(!childrenDown) ? `contenido ${animation}` : `contenido-down ${animation}`}>
+          <div ref={refContent} className={`contenido ${animation}`}>
             {children}
           </div>
         </div>

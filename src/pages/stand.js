@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Scene from "../components/canvas2d/scene";
-import plantilla1 from "../assets/plantillas/esc_plantilla-1.png";
-import plantilla2 from "../assets/plantillas/img_stand.png";
-import imgExample from "../assets/plantillas/wallpaper.jpg";
 import Button from "../components/UI/Button";
 import { FaInfoCircle, FaCalendarAlt, FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail, IoIosListBox } from "react-icons/io";
@@ -23,7 +20,8 @@ import Questions from "../components/userView/questions";
 import standsJSON from "../data/stand.json";
 import Iframe from "../components/userView/iframe";
 import { useParams } from "react-router-dom";
-//VIsta priincipal del stand
+
+//Vista principal del stand
 
 const Stand = () => {
   let { slug } = useParams();
@@ -47,11 +45,6 @@ const Stand = () => {
   const [ menuType, setMenuType ] = useState("");
   const [ contactList, setContactList ] = useState([]);
   const [ showSideModals, setShowSideModals ] = useState(false);
-  const [ images, setImages ] = useState([
-    {img: {imgExample}, width:"168", height:"374", top:"347", left:"445"},
-    {img: {imgExample}, width:"334", height:"117", top:"108", left:"742"},
-    {img: {imgExample}, width:"172", height:"412", top:"360", left:"1225"},
-  ]); 
   const [ selectedStand, setSelectedStand] = useState(null);
 
   const handleClose = () => setShow(false);
@@ -110,6 +103,8 @@ const Stand = () => {
   },[])
 
   const showModals = (element) => {
+    if(element.name === "Programa"){return;}
+
     if(element.name === "Recepción"){
         navigate("/reception");
         return;
@@ -149,7 +144,7 @@ const Stand = () => {
                     )
                 })
             }
-            {selectedStand &&
+            {selectedStand?.video?.url &&
                 <Div
                     width={selectedStand?.video?.width}
                     height={selectedStand?.video?.height}
@@ -157,13 +152,7 @@ const Stand = () => {
                     positionX={selectedStand?.video?.left}
                     zIndex={0}
                 >
-                    {/*<iframe width={selectedStand?.video?.width} height={selectedStand?.video?.height} 
-                    src={selectedStand?.video?.url} 
-                    title="YouTube video player" frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen></iframe>*/}
-                    <video width={selectedStand?.video?.width} height={selectedStand?.video?.height} controls autoPlay loop muted>
-                        <source src={selectedStand?.video?.url} type="video/mp4"/>
+                    <video src={selectedStand?.video?.url} width={selectedStand?.video?.width} height={selectedStand?.video?.height} controls autoPlay loop muted>
                     </video>
                 </Div>
             }
@@ -290,7 +279,7 @@ const Stand = () => {
                     positionY={400}
                     zIndex={5}
                 >
-                    <EmailForm />
+                    <EmailForm email={selectedStand.email}/>
                 </Div>
             }
             

@@ -4,7 +4,7 @@ import { MdOutlineEmojiEmotions } from "react-icons/md";
 import { RiSendPlaneFill}  from "react-icons/ri";
 import { apiSendEmail } from "../../../providers/apiSendEmail";
 
-const EmailForm = () => {
+const EmailForm = ({ email }) => {
     const [ message, setMessage ] = useState("");
     const {
         register,
@@ -14,7 +14,7 @@ const EmailForm = () => {
     } = useForm();
     
     const onSubmit = async (data) => {
-        apiSendEmail(data.email, data.subject, data.message)
+        apiSendEmail(email, data.from, data.subject, data.message)
           .then((data) => data.json())
           .then((response) => {
             console.log(response);
@@ -53,8 +53,8 @@ const EmailForm = () => {
                         <div className="border-top-0 border-start-0 border-end-0 border-cards mb-1">
                             <label className="text-white d-flex">
                                 <span className="align-self-center me-2 fst-italic fs-5">De</span>
-                                <input id="email" type="email" className="text-white fs-5 bg-transparent border-0 outline-none" 
-                                    {...register('email', { required: true } )} errorMessage={"Campo obligatorio"}
+                                <input id="from" type="email" className="text-white fs-5 bg-transparent border-0 outline-none" 
+                                    {...register('from', { required: true } )} errorMessage={"Campo obligatorio"}
                                 />
                             </label>
                         </div>

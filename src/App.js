@@ -32,7 +32,6 @@ import HomePage from "./pages/homePage";
 import Register from "./pages/register";
 import Reception from "./pages/reception";
 import Stand from "./pages/stand";
-import StandTemplate from "./components/standTemplate";
 import Conference from "./pages/conference";
 
 export default function App() {
@@ -49,7 +48,6 @@ export default function App() {
   },[authenticated])
 
   const PrivateRoute = () => {
-    //console.log(authenticated);
     if(authenticated === false){
       return (
         <>

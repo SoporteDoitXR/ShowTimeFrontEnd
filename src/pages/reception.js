@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Div from "../components/canvas2d/div";
 import Scene from "../components/canvas2d/scene";
-import img_reception from "../assets/plantillas/img_recepcion2.png";
+import img_reception from "../assets/plantillas/recepcion.jpg";
 import logoReception from "../assets/elements/recepcion-logo.jpg";
 import verticalReception from "../assets/elements/recepcion-vertical.jpg";
 import horizontalReception from "../assets/elements/recepcion-horizontal.jpg";
@@ -182,14 +182,14 @@ const Reception = ({ }) => {
                         positionY={400}
                         zIndex={5}
                     >
-                        <EmailForm />
+                        <EmailForm email="soporte@doitxr.com"/>
                     </Div>
                     
                 }
                 <Div
                     className=""
                     width={1924}
-                    positionY={750}
+                    positionY={778}
                     zIndex={5}
                 >
                     <div className="px-5 text-white fs-3 col-12 poppins-bold d-flex justify-content-between align-self-end">

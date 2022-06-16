@@ -437,15 +437,18 @@ option[value=""][disabled] {
 
 
 .bg-gradient-1 {
-  background: transparent linear-gradient(180deg, #16171B 0%, #1B1C24 40%, #25283600 93%, #25283600 100%) 0% 0% no-repeat padding-box;
-  opacity: 1;
+  /*background: transparent linear-gradient(180deg, #16171B 0%, #1B1C24 40%, #25283600 93%, #25283600 100%) 0% 0% no-repeat padding-box;
+  */
+  background: transparent linear-gradient(180deg, #16171B 0%, #1B1C24 40%, #25283600 93%, #25283600 100%) 0% 0% no-repeat padding-box;  opacity: 1;
   transform: matrix(-1, 0, 0, -1, 0, 0);
 }
 
 .bg-gradient-2 {
   transform: matrix(-1, 0, 0, -1, 0, 0);
   opacity: 1;
-  background: linear-gradient(180deg, rgba(78,39,159,1) 17%, rgba(78,39,159,1) 33%, rgba(0,0,0,0.9556197478991597) 67%, rgba(0,0,0,1) 92%) 0% 0% no-repeat padding-box;
+  /*background: linear-gradient(180deg, rgba(78,39,159,1) 17%, rgba(78,39,159,1) 33%, rgba(0,0,0,0.9556197478991597) 67%, rgba(0,0,0,1) 92%) 0% 0% no-repeat padding-box;
+*/
+background: transparent linear-gradient(180deg, #4E279F 0%, #4E279F 9%, #25283600 93%, #25283600 100%) 0% 0% no-repeat padding-box;
 }
 
 .bg-gradient-3 {
@@ -538,11 +541,4 @@ option[value=""][disabled] {
 
 .react-pdf__Page__canvas{
   width: 945px !important;
-}
-
-html{
-  height: 100%;
-  margin: auto;
-  width: 960px;
-  overflow: scroll;
 }

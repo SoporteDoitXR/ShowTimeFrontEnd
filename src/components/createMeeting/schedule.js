@@ -4,12 +4,12 @@ import { Link, Outlet } from "react-router-dom";
 import { getMeetings } from "../../providers/apiMeeting";
 
 const Schedule = ({  }) => {
-  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedDate, setSelectedDate] = useState("Thu Jun 23");
   const [forums, setForums] = useState([]);
   const [talks, setTalks] = useState([]);
   const [dates, setDates] = useState([
     { dayName:"Jue", day: "23 de junio", simpleDate: "Thu Jun 23" }, 
-    { dayName:"Vir", day: "23 de junio", simpleDate: "Fri Jun 24" }
+    { dayName:"Vir", day: "24 de junio", simpleDate: "Fri Jun 24" }
   ]);
 
   const onSelectDevice = (element) => {
@@ -44,8 +44,10 @@ const Schedule = ({  }) => {
           .then((response) => {
             response.map((element) => {
               if(element.type === "forum"){
+                element.date = element.date.split("T")[0];
                 forum.push(element);
               }else{
+                element.date = element.date.split("T")[0];
                 talk.push(element);
               }
             })
@@ -112,7 +114,7 @@ const Schedule = ({  }) => {
                   <span className="fs-1 poppins-medium ms-2">Foros</span>
                 </div>
                 <div className="col h-full">
-                  <span className="fs-1 poppins-medium ms-2">Charlas</span>
+                  <span className="fs-1 poppins-medium ms-2">Conferencias</span>
                 </div>
               </div>
             </Div>
@@ -128,6 +130,7 @@ const Schedule = ({  }) => {
                     {forums ? ( 
                         forums?.map((element, i) => {
                             return(
+                              (element.date.split("-")[2] === selectedDate.split(" ")[2]) &&
                                 <div className="col me-3" key={i}>
                                     <div className="text-white primary-bg dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
                                         <div className="text-truncate row col-9">
@@ -154,6 +157,7 @@ const Schedule = ({  }) => {
                     {talks ? ( 
                         talks?.map((element, i) => {
                             return(
+                              (element.date.split("-")[2] === selectedDate.split(" ")[2]) &&
                                 <div className="col me-3" key={i}>
                                     <div className="text-black bg-body dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
                                         <div className="text-truncate row col-9">
