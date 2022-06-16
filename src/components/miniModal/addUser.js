@@ -7,14 +7,15 @@
   --NOTA-- SE PUEDE REUTILIZAR O CREAR NUEVO COMPONENTE A PARTIR DE ESTE PARA EL CASO DE CREAR EMPRESAS
   YA QUE, AUN NO ESTA DEFINIDA LA INFORMACION DE LAS EMPRESAS
 */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { MdAddAPhoto, MdDeleteForever } from "react-icons/md";
 import CheckBox from "../UI/Checkbox";
 import Input from "../UI/Input";
 import Select from "../UI/Select";
+import Button from "../UI/Button";
 
-const AddUser = () => {
+const AddUser = ({setOnSubmit, setShowModal}) => {
   const {
     register,
     handleSubmit,
@@ -22,19 +23,26 @@ const AddUser = () => {
     formState: { errors },
   } = useForm();
 
-  //FUNCION QUE SE EJECUTA LUEGO DE VALIDAR
+  //FUNCION QUE SE EJECUTA LUEGO DE  VALIDAR
   const onSubmit = (e) => {
+    console.log("llegue");
     console.log(e);
   };
+  
   const [imgProfile, setImgProfile] = useState("");
 
+  /*useEffect(() => {
+    setOnSubmit(onSubmit);
+  })*/
+
   return (
+    <>
     <form
       className=" d-flex flex-column g-4 col-10 mx-auto "
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
-      <div class="col mx-auto">
+      <div className="col mx-auto">
         <div className="profile-inputFile mx-auto position-relative cursor-pointer h-14 w-14 rounded-pill">
           <input
             type="file"
@@ -149,6 +157,15 @@ const AddUser = () => {
         errorMessage={"Campo obligatorio"}
       />
     </form>
+    <div className="modal-footer border-0 mb-3 justify-content-center">
+        <Button
+          className="btn btn-dark px-5 poppins-bold"
+          text="Cancelar"
+          onClick={() => setShowModal(false)}
+        />
+        <Button type="submit" className="btn btn-light px-5 poppins-bold" text="Guardar" />
+    </div>
+    </>
   );
 };
 export default AddUser;

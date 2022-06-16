@@ -24,8 +24,10 @@ import {
   RiArrowRightSLine,
   RiSlideshow2Fill,
 } from "react-icons/ri";
+import { IoAlarmSharp } from "react-icons/io5";
+import { FaEye } from "react-icons/fa";
 
-const createMeeting = () => {
+const createMeeting = ({userMode}) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -38,7 +40,7 @@ const createMeeting = () => {
       <Div
         className="bg-dark-transparent "
         width={1600}
-        height={900}
+        height={955}
         positionY={100}
         positionX={160}
       />
@@ -49,63 +51,212 @@ const createMeeting = () => {
         positionY={150}
         positionX={220}
       >
-        <div className="d-flex ms-3 fs-2">
-          <RiSlideshow2Fill className="fs-1 my-auto me-3" />
-          Conferencias
-        </div>
-        <div className="d-flex justify-content-end">
-          <Button
-            className="btn light-bg text-white px-5 py-3 me-3 poppins-bold "
-            size="small"
-            text="Nueva conferencia"
-            onClick={() => setShowModal(true)}
-          />
-        </div>
+        {userMode ?
+          <div className="d-flex fs-2">
+            Ingreso a salas
+          </div>
+          :
+          <>
+            <div className="d-flex ms-3 fs-2">
+              <RiSlideshow2Fill className="fs-1 my-auto me-3" />
+              Conferencias
+            </div>
+            <div className="d-flex justify-content-end">
+              <Button
+                className="btn light-bg text-white px-5 py-3 me-3 poppins-bold "
+                size="small"
+                text="Nueva conferencia"
+                onClick={() => setShowModal(true)}
+              />
+            </div>
+          </>
+        }
       </Div>
 
       <Div
         className=" poppins-medium text-white"
         width={1500}
         height={600}
-        positionY={350}
+        positionY={240}
         positionX={220}
       >
-        <div className="d-flex">
-          <Button
-            className="btn btn-dark poppins-bold text-white fs-1"
-            size="small"
-            rounded="semi"
-            icon={RiArrowLeftSLine}
-          />
+        <div className="h-full">
 
-          <div className="col text-white dark-bg-1 rounded-2xl mx-4 text-center d-flex justify-content-center">
-            <span className="align-middle poppins-bold my-auto fs-5">
-              Domingo<span className="poppins-medium"> 13 de junio</span>
-            </span>
-          </div>
-          <div className="col text-white primary-bg  rounded-2xl mx-4 text-center d-flex justify-content-center">
-            <span className="align-middle poppins-bold my-auto fs-5">
-              Domingo<span className="poppins-medium"> 13 de junio</span>
-            </span>
-          </div>
-          <div className="col text-white dark-bg-1 rounded-2xl mx-4 text-center d-flex justify-content-center">
-            <span className="align-middle poppins-bold my-auto fs-5">
-              Domingo<span className="poppins-medium"> 13 de junio</span>
-            </span>
-          </div>
 
-          <Button
-            className="btn btn-dark poppins-bold text-white fs-1"
-            size="small"
-            rounded="semi"
-            icon={RiArrowRightSLine}
-          />
-        </div>
+          <div className="d-flex">
+            {/*<Button
+              className="btn btn-dark poppins-bold text-white fs-1"
+              size="small"
+              rounded="semi"
+              icon={RiArrowLeftSLine}
+              />*/}
 
-        {/* LISTA DINAMICA DE MEETINGS */}
-        <div className="d-flex flex-column h-85 custom-scroll p-0 mt-3">
-          {/* IMAGEN PLACEHOLDER */}
-          <img className="h-full" src={placeHolder} alt="" />
+            <div className="col text-white dark-bg-1 rounded-2xl mx-3 text-center d-flex justify-content-center">
+              <span className="align-middle poppins-bold my-auto fs-6 py-3">
+                Dom<span className="poppins-light"> 13 de junio</span>
+              </span>
+            </div>
+            <div className="col text-white primary-bg rounded-2xl mx-3 text-center d-flex justify-content-center">
+              <span className="align-middle poppins-bold my-auto fs-6">
+                Lun<span className="poppins-light"> 14 de junio</span>
+              </span>
+            </div>
+            <div className="col text-white dark-bg-1 rounded-2xl mx-3 text-center d-flex justify-content-center">
+              <span className="align-middle poppins-bold my-auto fs-6">
+                Mar<span className="poppins-light"> 15 de junio</span>
+              </span>
+            </div>
+            <div className="col text-white dark-bg-1 rounded-2xl mx-3 text-center d-flex justify-content-center">
+              <span className="align-middle poppins-bold my-auto fs-6">
+                Mie<span className="poppins-light"> 16 de junio</span>
+              </span>
+            </div>
+            <div className="col text-white dark-bg-1 rounded-2xl mx-3 text-center d-flex justify-content-center">
+              <span className="align-middle poppins-bold my-auto fs-6">
+                Jue<span className="poppins-light"> 17 de junio</span>
+              </span>
+            </div>
+            <div className="col text-white dark-bg-1 rounded-2xl mx-3 text-center d-flex justify-content-center">
+              <span className="align-middle poppins-bold my-auto fs-6">
+                Vir<span className="poppins-light"> 17 de junio</span>
+              </span>
+            </div>
+            <div className="col text-white dark-bg-1 rounded-2xl mx-3 text-center d-flex justify-content-center">
+              <span className="align-middle poppins-bold my-auto fs-6">
+                Sab<span className="poppins-light"> 17 de junio</span>
+              </span>
+            </div>
+
+            {/*<Button
+              className="btn btn-dark poppins-bold text-white fs-1"
+              size="small"
+              rounded="semi"
+              icon={RiArrowRightSLine}
+            />*/}
+          </div>
+            <Div
+              className=" poppins-medium text-white"
+              width={1500}
+              height={600}
+              positionY={70}
+              positionX={-5}
+            >
+              <div className="row g-4 my-3 mx-auto my-auto h-full">
+
+                <div className="col h-full">
+                  <span className="fs-1 poppins-medium ms-2">Foros</span>
+                  <div className="row my-3 mx-auto my-auto custom-calendar-scroll h-full">
+                    <div class="col">
+                      <div className="text-white primary-bg dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
+                        <div className="text-truncate row col-9">
+                          <div className="poppins-medium fs-4 py-1">Conferencia: "Titulo" 2021</div>
+                          <span className="fs-6 py-1">Expositor: John Doe</span>
+                          <span className="fs-5 py-1">Comenzó hace 3 min</span>
+                        </div>
+                        <div className="d-flex justify-content-center align-self-center poppins-bold my-auto fs-5 col text-truncate rounded-pill bg-body 
+                          text-black py-3 px-1 text-center">Unirse</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div className="text-white primary-bg dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
+                        <div className="text-truncate row col-9">
+                          <div className="poppins-medium fs-4 py-1">Conferencia: "Titulo" 2021</div>
+                          <span className="fs-6 py-1">Expositor: John Doe</span>
+                          <span className="fs-5 py-1">Comenzó hace 3 min</span>
+                        </div>
+                        <div className="d-flex justify-content-center align-self-center poppins-bold my-auto fs-5 col text-truncate rounded-pill bg-body 
+                          text-black py-3 px-1 text-center">Unirse</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div className="text-white primary-bg dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
+                        <div className="text-truncate row col-9">
+                          <div className="poppins-medium fs-4 py-1">Conferencia: "Titulo" 2021</div>
+                          <span className="fs-6 py-1">Expositor: John Doe</span>
+                          <span className="fs-5 py-1">Comenzó hace 3 min</span>
+                        </div>
+                        <div className="d-flex justify-content-center align-self-center poppins-bold my-auto fs-5 col text-truncate rounded-pill bg-body 
+                          text-black py-3 px-1 text-center">Unirse</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div className="text-white primary-bg dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
+                        <div className="text-truncate row col-9">
+                          <div className="poppins-medium fs-4 py-1">Conferencia: "Titulo" 2021</div>
+                          <span className="fs-6 py-1">Expositor: John Doe</span>
+                          <span className="fs-5 py-1">Comenzó hace 3 min</span>
+                        </div>
+                        <div className="d-flex justify-content-center align-self-center poppins-bold my-auto fs-5 col text-truncate rounded-pill bg-body 
+                          text-black py-3 px-1 text-center">Unirse</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              
+                <div className="col h-full">
+                  <span className="fs-1 poppins-medium ms-2">Charlas</span>
+                  <div className="row my-3 mx-auto my-auto custom-calendar-scroll h-full">
+                    <div class="col">
+                      <div className="text-black bg-body dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
+                        <div className="text-truncate row col-9">
+                          <div className="poppins-medium fs-4 py-1">Conferencia: "Titulo" 2021</div>
+                          <span className="fs-6 py-1">Expositor: John Doe</span>
+                          <span className="fs-5 py-1">Comenzó hace 3 min</span>
+                        </div>
+                        <div className="d-flex justify-content-center align-self-center poppins-bold my-auto fs-5 col text-truncate rounded-pill primary-bg  
+                          text-white py-3 px-1 text-center">Unirse</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div className="text-black bg-body dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
+                        <div className="text-truncate row col-9">
+                          <div className="poppins-medium fs-4 py-1">Conferencia: "Titulo" 2021</div>
+                          <span className="fs-6 py-1">Expositor: John Doe</span>
+                          <span className="fs-5 py-1">Comenzó hace 3 min</span>
+                        </div>
+                        <div className="d-flex justify-content-center align-self-center poppins-bold my-auto fs-5 col text-truncate rounded-pill primary-bg  
+                          text-white py-3 px-1 text-center">Unirse</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div className="text-black bg-body dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
+                        <div className="text-truncate row col-9">
+                          <div className="poppins-medium fs-4 py-1">Conferencia: "Titulo" 2021</div>
+                          <span className="fs-6 py-1">Expositor: John Doe</span>
+                          <span className="fs-5 py-1">Comenzó hace 3 min</span>
+                        </div>
+                        <div className="d-flex justify-content-center align-self-center poppins-bold my-auto fs-5 col text-truncate rounded-pill primary-bg  
+                          text-white py-3 px-1 text-center">Unirse</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div className="text-black bg-body dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
+                        <div className="text-truncate row col-9">
+                          <div className="poppins-medium fs-4 py-1">Conferencia: "Titulo" 2021</div>
+                          <span className="fs-6 py-1">Expositor: John Doe</span>
+                          <span className="fs-5 py-1">Comenzó hace 3 min</span>
+                        </div>
+                        <div className="d-flex justify-content-center align-self-center poppins-bold my-auto fs-5 col text-truncate rounded-pill primary-bg  
+                          text-white py-3 px-1 text-center">Unirse</div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div className="text-black bg-body dark-bg-1 d-flex py-3 px-4 rounded-2xl fs-5 poppins-light my-2"> 
+                        <div className="text-truncate row col-9">
+                          <div className="poppins-medium fs-4 py-1">Conferencia: "Titulo" 2021</div>
+                          <span className="fs-6 py-1">Expositor: John Doe</span>
+                          <span className="fs-5 py-1">Comenzó hace 3 min</span>
+                        </div>
+                        <div className="d-flex justify-content-center align-self-center poppins-bold my-auto fs-5 col text-truncate rounded-pill primary-bg  
+                          text-white py-3 px-1 text-center">Unirse</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Div>
+
         </div>
       </Div>
       {showModal && (

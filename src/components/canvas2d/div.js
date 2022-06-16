@@ -17,11 +17,13 @@ const Div = ({
   onClick,
   hoverEnter,
   hoverExit,
+  key
 }) => {
   const ref = useRef(null);
 
   return (
     <div
+      key={key}
       ref={ref}
       onMouseEnter={() => {
         var auxClass = ref.current.className
@@ -48,6 +50,7 @@ const Div = ({
         left: `${positionX}px`,
         color: `${color}`,
         overflowX: `${scroll ? "auto" : "none"}`,
+       // overflowY: `${scroll ? "auto" : "none"}`,
         zIndex: `${zIndex}`,
       }}
       onClick={onClick}

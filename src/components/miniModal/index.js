@@ -21,6 +21,11 @@ import AddMeeting from "./addMeeting";
 import AddMasive from "./addMasive";
 
 const IndexMiniModal = ({ type, setShowModal }) => {
+  const [onSubmit, setOnSubmit] = useState();
+  const prueba = () => {
+    console.log("llegue");
+  }
+
   return (
     <>
       <div className="modal d-block bg-dark-transparent z-10"></div>
@@ -45,17 +50,17 @@ const IndexMiniModal = ({ type, setShowModal }) => {
           </div>
         </div>
         {/* SECCION DE COMPONENTES SEGUN PROP: TYPE */}
-        {type == "addUser" && <AddUser />}
+        {type == "addUser" && <AddUser setOnSubmit={setOnSubmit} setShowModal={setShowModal}/>}
         {type == "addMeeting" && <AddMeeting />}
         {type.includes("addMasive") && <AddMasive type={type} />}
-        <div className="modal-footer border-0 mb-3 justify-content-center">
+        {/*<div className="modal-footer border-0 mb-3 justify-content-center">
           <Button
             className="btn btn-dark px-5 poppins-bold"
             text="Cancelar"
             onClick={() => setShowModal(false)}
           />
-          <Button className="btn btn-light px-5 poppins-bold" text="Guardar" />
-        </div>
+          <Button type="submit" onClick={() => prueba} className="btn btn-light px-5 poppins-bold" text="Guardar" />
+      </div>*/}
       </Div>
     </>
   );

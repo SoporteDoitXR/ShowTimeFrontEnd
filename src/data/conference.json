@@ -1,0 +1,39 @@
+[
+    {
+        "slug" : 1,
+        "name" : "Stand 1",
+        "description" : "Description of the conference 1",
+        "expositor" : "Jhon Doe",
+        "room" : "Sala 01",
+        "background_image" : "../../../images/backgrounds/foros.jpg",
+        "apiKey" : "B21BRG6-QD6HRMly9tSEPQ",
+        "apiSecret" : "rBNn7SrqGBGGX8RCMmpiTLk2SwY8h7PGNOLe",
+        "meetingNumber" : 87993774951,
+        "role" : 0,
+        "leaveUrl" : "http://localhost:3001/reception",
+        "userEmail" : "yerarias23@gmail.com",
+        "passWord" : "GxW91A",
+        "signature" : ""
+    },
+    {
+        "slug" : 2,
+        "name" : "Stand 2",
+        "description" : "Description of the conference 2",
+        "expositor" : "Jhon Doe",
+        "room" : "Sala 02",
+        "background_image" : "../../../images/backgrounds/conferencias.jpg",
+        "element_image" : [
+            {"img": "../../../images/elements/auditorio-01.jpg", "width" : "212", "height" : "552", "top" : "21", "left" : "275"},
+            {"img": "../../../images/elements/auditorio-02.jpg", "width" : "212", "height" : "560", "top" : "14", "left" : "1508"}
+        ],
+        "apiKey" : "B21BRG6-QD6HRMly9tSEPQ",
+        "apiSecret" : "rBNn7SrqGBGGX8RCMmpiTLk2SwY8h7PGNOLe",
+        "meetingNumber" : 87993774951,
+        "role" : 0,
+        "leaveUrl" : "http://localhost:3001/reception",
+        "userName" : "ShowtimeTest",
+        "userEmail" : "yerarias23@gmail.com",
+        "passWord" : "GxW91A",
+        "signature" : ""
+    }
+]
